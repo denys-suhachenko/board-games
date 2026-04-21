@@ -69,7 +69,12 @@ export function GoBoard({ options }: GoBoardProps) {
 
       <BoardStones board={game.board} points={points} cell={options.cell} />
 
-      <HitAreas options={options} points={points} onClick={applyMove} />
+      <HitAreas
+        board={game.board}
+        options={options}
+        points={points}
+        onClick={applyMove}
+      />
     </svg>
   );
 }
