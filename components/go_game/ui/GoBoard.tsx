@@ -10,6 +10,7 @@ import { BoardDefs } from './BoardDefs';
 import { BoardGrid } from './BoardGrid';
 import { HitAreas } from './HitAreas';
 import { BoardHoshi } from './BoardHoshi';
+import { BoardStaticLayer } from './BoardStaticLayer';
 
 type GoBoardProps = {
   options: BoardOptions;
@@ -26,6 +27,7 @@ export function GoBoard({ options }: GoBoardProps) {
 
   const { innerSize, canvasSize, points } = useMemo(() => {
     const inner = options.cell * (options.size - 1);
+
     return {
       innerSize: inner,
       canvasSize: inner + options.padding * 2,
@@ -58,14 +60,11 @@ export function GoBoard({ options }: GoBoardProps) {
     >
       <BoardDefs />
 
-      {/* canvas */}
-      <rect x={0} y={0} width={canvasSize} height={canvasSize} fill="#F5DEBE" />
-
-      {/* grid lines */}
-      <BoardGrid options={options} innerSize={innerSize} />
-
-      {/* hoshi points */}
-      <BoardHoshi options={options} />
+      <BoardStaticLayer
+        options={options}
+        canvasSize={canvasSize}
+        innerSize={innerSize}
+      />
 
       <BoardStones board={game.board} points={points} cell={options.cell} />
 
