@@ -12,11 +12,13 @@ export function HitAreas({
   onClick,
 }: HitAreasProps) {
   return points.map(({ x, y, cx, cy }) => (
-    <circle
+    <rect
       key={`hit-${x}-${y}`}
-      r={cell * 0.5}
-      cx={cx}
-      cy={cy}
+      x={cx - cell / 2}
+      y={cy - cell / 2}
+      width={cell}
+      rx={cell}
+      height={cell}
       className="cursor-pointer fill-transparent hover:fill-black/5"
       onClick={() => onClick?.(x, y)}
     />
