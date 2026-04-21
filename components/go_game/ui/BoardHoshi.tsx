@@ -18,6 +18,12 @@ export function BoardHoshi({
   );
 
   return coordinates.map(([x, y]) => (
-    <circle key={`hoshi-${x}-${y}`} r={cell * 0.1} fill="black" cx={x} cy={y} />
+    <circle
+      key={`hoshi-${x}-${y}`}
+      r={cell * 0.075}
+      fill="black"
+      cx={x}
+      cy={y}
+    />
   ));
 }
