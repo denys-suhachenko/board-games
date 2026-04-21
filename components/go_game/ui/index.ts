@@ -1,0 +1,1 @@
+export { GoBoard } from './GoBoard';

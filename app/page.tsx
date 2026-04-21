@@ -1,39 +1,44 @@
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-3xl flex-1 flex-col items-center bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <div className="mb-8 flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{' '}
-            center.
-          </p>
-        </div>
+    <main className="mx-auto max-w-7xl px-6">
+      <div className="md:py-8">
+        <p className="text-primary text-sm font-medium">Play. Discover. Win.</p>
 
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <button className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]">
-            Deploy Now
-          </button>
-          <button className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-            Documentation
-          </button>
+        <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Your World of Board Games Starts Here
+        </h1>
+
+        <p className="text-muted-foreground mt-6 max-w-xl text-base leading-7 sm:text-lg">
+          Find the perfect board game for quiet evenings, shared laughs, and
+          memorable nights.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Button
+            asChild
+            size="lg"
+            className="shadow-primary/20 border-ring h-12 min-w-[200px] rounded-full px-8 shadow-md"
+          >
+            <Link href="/games/go">
+              Explore games
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-primary/20 bg-background/50 h-12 min-w-[200px] rounded-full px-8"
+          >
+            <Link href="/">Sign up to play</Link>
+          </Button>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
