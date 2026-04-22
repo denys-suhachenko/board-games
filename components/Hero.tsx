@@ -9,7 +9,7 @@ import { Container, Navbar } from '@/shared/layout';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[640px] overflow-hidden">
+    <section className="relative h-dvh min-h-[640px] overflow-hidden">
       <Image
         src={heroImage}
         alt="Classic board games including chess, go, shogi and xiangqi"
