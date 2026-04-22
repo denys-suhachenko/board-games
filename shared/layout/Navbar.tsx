@@ -15,14 +15,6 @@ const navItems = [
     label: 'Go',
   },
   {
-    href: '/',
-    label: 'Chess',
-  },
-  {
-    href: '/',
-    label: 'Checkers',
-  },
-  {
     href: '/games/latrunculi',
     label: 'Latrunculi',
   },

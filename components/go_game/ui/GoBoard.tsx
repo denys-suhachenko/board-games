@@ -54,7 +54,7 @@ export function GoBoard({ options }: GoBoardProps) {
   return (
     <svg
       viewBox={`0 0 ${canvasSize} ${canvasSize}`}
-      className="mx-auto h-auto w-full max-w-3xl rounded-md border shadow-md/10"
+      className="mx-auto h-auto w-full max-w-4xl rounded-md border shadow-md/10"
       role="img"
       aria-label={`Go game board ${options.size} by ${options.size}`}
     >

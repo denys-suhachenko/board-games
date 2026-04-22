@@ -2,9 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-import heroImage from '@/public/hero_image.png';
-// import heroImage from '@/public/hero_image_gray.png';
-// import heroImage from '@/public/hero_image_dark.png';
+import heroImage from '@/public/hero.png';
 
 import { Button } from '@/shared/ui/button';
 import { Container, Navbar } from '@/shared/layout';
@@ -48,7 +46,7 @@ export function Hero() {
                 size="lg"
                 className="shadow-primary/20 border-ring h-12 min-w-[200px] rounded-full px-8 shadow-md"
               >
-                <Link href="/games/go">
+                <Link href="/games">
                   Explore games
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
