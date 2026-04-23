@@ -26,7 +26,19 @@ export function Piece({ cell }: PieceProps) {
         : '/figures/disks/disk_white_shadow.svg';
   }
 
-  return <Image src={src} alt={cell.color} width={80} height={80} />;
+  return (
+    <Image
+      src={src}
+      alt={cell.color}
+      loading="eager"
+      className={cn(
+        'transition duration-300',
+        cell.color === 'black' ? 'hover:brightness-60' : 'hover:brightness-90',
+      )}
+      width={80}
+      height={80}
+    />
+  );
 }
 
 function initBoard(width: number, height: number) {
