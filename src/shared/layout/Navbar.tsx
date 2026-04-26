@@ -10,22 +10,22 @@ type NavbarProps = {
 };
 
 const navItems = [
-  {
-    href: '/games/chess',
-    label: 'Chess',
-  },
-  {
-    href: '/games/checkers',
-    label: 'Checkers',
-  },
+  // {
+  //   href: '/games/chess',
+  //   label: 'Chess',
+  // },
+  // {
+  //   href: '/games/checkers',
+  //   label: 'Checkers',
+  // },
   {
     href: '/games/go',
     label: 'Go',
   },
-  {
-    href: '/games/shogi',
-    label: 'Shogi',
-  },
+  // {
+  //   href: '/games/shogi',
+  //   label: 'Shogi',
+  // },
   {
     href: '/games/xiangqi',
     label: 'Xiangqi',
