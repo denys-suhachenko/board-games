@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react';
 
-import { GoBoard as GoBoardType, GoBoardOptions, GoStone } from '../types';
-import { createBoardPoints, initBoard } from '../utils';
+import { GoBoard as GoBoardType, GoBoardOptions, GoStone } from '../../types';
+import { createBoardPoints, initBoard } from '../../utils';
 
 import { BoardDefs } from './BoardDefs';
 import { GoBoardGrid } from './GoBoardGrid';
@@ -50,7 +50,7 @@ export function GoBoard({ options }: GoBoardProps) {
   };
 
   return (
-    <div className="flex h-dvh items-center justify-center p-4">
+    <div className="flex h-dvh items-center justify-center">
       <svg
         viewBox={`0 0 ${canvasSize} ${canvasSize}`}
         role="img"

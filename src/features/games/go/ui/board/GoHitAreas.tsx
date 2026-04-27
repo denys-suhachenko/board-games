@@ -1,6 +1,6 @@
 import { cn } from '@/shared/lib/utils';
 
-import { GoBoard, GoBoardOptions, GoStonePoint } from '../types';
+import { GoBoard, GoBoardOptions, GoStonePoint } from '../../types';
 
 type GoHitAreasProps = {
   board: GoBoard;

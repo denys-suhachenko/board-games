@@ -1,13 +1,7 @@
-import {
-  createBoardPoints,
-  getPointPosition,
-  HIT_SIZE_PERCENT,
-} from '../utils';
+import { BOARD_POINTS, getPointPosition, HIT_SIZE_PERCENT } from '../../utils';
 
 export function XiangqiHitAreas() {
-  const boardPoints = createBoardPoints();
-
-  return boardPoints.map((point) => {
+  return BOARD_POINTS.map((point) => {
     const { top, left } = getPointPosition(point.row, point.col);
     return (
       <button

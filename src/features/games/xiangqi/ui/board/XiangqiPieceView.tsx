@@ -1,5 +1,5 @@
-import { XiangqiPiece } from '../types';
-import { getPieceImage, HIT_SIZE_PERCENT } from '../utils';
+import { XiangqiPiece } from '../../types';
+import { getPieceImage, HIT_SIZE_PERCENT } from '../../utils';
 
 export function XiangqiPieceView({
   piece,

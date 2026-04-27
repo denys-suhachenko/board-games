@@ -1,5 +1,5 @@
-import { GoBoardOptions } from '../types';
-import { getHoshiCoordinates } from '../utils';
+import { GoBoardOptions } from '../../types';
+import { getHoshiCoordinates } from '../../utils';
 
 type GoBoardGridProps = {
   innerSize: number;

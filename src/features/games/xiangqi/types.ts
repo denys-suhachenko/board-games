@@ -1,6 +1,6 @@
 export type XiangqiBoardSide = 'red' | 'black';
 
-export type XiangqiieceType =
+export type XiangqiPieceType =
   | 'general'
   | 'advisor'
   | 'elephant'
@@ -12,7 +12,7 @@ export type XiangqiieceType =
 export type XiangqiPiece = {
   id: string;
   side: XiangqiBoardSide;
-  type: XiangqiieceType;
+  type: XiangqiPieceType;
 };
 
 export type XiangqiBoardMatrix = Array<Array<XiangqiPiece | null>>;

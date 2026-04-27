@@ -1,4 +1,4 @@
-import { GoBoard, GoStonePoint } from '../types';
+import { GoBoard, GoStonePoint } from '../../types';
 
 type GoBoardStonesProps = {
   board: GoBoard;

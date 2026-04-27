@@ -1,10 +1,13 @@
 import { XiangqiBoardMatrix, XiangqiPiece } from './types';
 
 export const CELL = 64;
-export const PADDING = 40;
+export const PADDING = 48;
 
 export const COLS = 8;
 export const ROWS = 4;
+
+export const BOARD_COLS = COLS + 1;
+export const BOARD_ROWS = (ROWS + 1) * 2;
 
 export const GRID_WIDTH = CELL * COLS;
 export const GRID_HEIGHT = CELL * (ROWS * 2 + 1);
@@ -15,11 +18,9 @@ export const BOARD_HEIGHT = GRID_HEIGHT + PADDING * 2;
 export const HIT_SIZE = CELL * 0.85;
 export const HIT_SIZE_PERCENT = (HIT_SIZE / BOARD_WIDTH) * 100;
 
-export function createBoardPoints() {
-  return Array.from({ length: (ROWS + 1) * 2 }, (_, row) =>
-    Array.from({ length: COLS + 1 }, (_, col) => ({ row, col })),
-  ).flat();
-}
+export const BOARD_POINTS = Array.from({ length: BOARD_ROWS }, (_, row) =>
+  Array.from({ length: BOARD_COLS }, (_, col) => ({ row, col })),
+).flat();
 
 export function getPointPosition(row: number, col: number) {
   const x = PADDING + col * CELL;
@@ -29,12 +30,12 @@ export function getPointPosition(row: number, col: number) {
 }
 
 function createEmptyBoard(): XiangqiBoardMatrix {
-  return Array.from({ length: 10 }, () =>
-    Array.from({ length: 9 }, () => null),
+  return Array.from({ length: BOARD_ROWS }, () =>
+    Array.from({ length: BOARD_COLS }, () => null),
   );
 }
 
-export function createInitialXiangqiBoard(): XiangqiBoardMatrix {
+function createInitialXiangqiBoard(): XiangqiBoardMatrix {
   const board = createEmptyBoard();
 
   // Black side, top
@@ -79,6 +80,8 @@ export function createInitialXiangqiBoard(): XiangqiBoardMatrix {
 
   return board;
 }
+
+export const INITIAL_XIANGQI_BOARD = createInitialXiangqiBoard();
 
 export function getPieceImage(piece: XiangqiPiece) {
   return `/xiangqi/${piece.side}_filled/${piece.type}.svg`;

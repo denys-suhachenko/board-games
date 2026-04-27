@@ -1,4 +1,4 @@
-import { CELL, COLS, ROWS } from '../utils';
+import { CELL, COLS, ROWS } from '../../utils';
 
 export function XiangqiBoardSection({
   position = 'top',
@@ -8,12 +8,10 @@ export function XiangqiBoardSection({
   offsetY?: number;
 }) {
   return (
-    <>
-      <g stroke="black" strokeWidth={0.5} transform={`translate(0 ${offsetY})`}>
-        <XiangqiSectionGrid />
-        <XiangqiSectionPalace position={position} />
-      </g>
-    </>
+    <g stroke="black" strokeWidth={0.5} transform={`translate(0 ${offsetY})`}>
+      <XiangqiSectionGrid />
+      <XiangqiSectionPalace position={position} />
+    </g>
   );
 }
 
@@ -55,9 +53,9 @@ function XiangqiSectionPalace({
   const y2 = position === 'top' ? 2 * CELL : 4 * CELL;
 
   return (
-    <>
-      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="black" strokeWidth={0.75} />
-      <line x1={x2} y1={y1} x2={x1} y2={y2} stroke="black" strokeWidth={0.75} />
-    </>
+    <g strokeWidth={0.75}>
+      <line x1={x1} y1={y1} x2={x2} y2={y2} />
+      <line x1={x2} y1={y1} x2={x1} y2={y2} />
+    </g>
   );
 }

@@ -6,7 +6,7 @@ import Link from 'next/link';
 const games = [
   {
     id: 'go',
-    title: 'Go',
+    title: 'Go (围棋/圍棋)',
     img: '/categories/go_angle.png',
     link: '/games/go',
   },
@@ -15,11 +15,13 @@ const games = [
   //   title: 'Chess',
   //   link: '/',
   // },
-  // {
-  //   id: 'xiangqi',
-  //   title: 'Xiangqi',
-  //   link: '/',
-  // },
+  {
+    id: 'xiangqi',
+    title: 'Xiangqi (象棋)',
+    img: '/categories/xiangqi.png',
+    link: '/games/xiangqi',
+    country: 'Ancient China',
+  },
   // {
   //   id: 'backgammon',
   //   title: 'Backgammon',

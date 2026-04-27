@@ -1,10 +1,8 @@
-import { createInitialXiangqiBoard, getPointPosition } from '../utils';
+import { getPointPosition, INITIAL_XIANGQI_BOARD } from '../../utils';
 import { XiangqiPieceView } from './XiangqiPieceView';
 
 export function XiangqiBoardPieces() {
-  const board = createInitialXiangqiBoard();
-
-  return board.map((row, rowIndex) =>
+  return INITIAL_XIANGQI_BOARD.map((row, rowIndex) =>
     row.map((piece, colIndex) => {
       if (!piece) {
         return null;

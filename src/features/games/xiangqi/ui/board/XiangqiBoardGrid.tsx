@@ -1,4 +1,4 @@
-import { BOARD_HEIGHT, BOARD_WIDTH, CELL, PADDING, ROWS } from '../utils';
+import { BOARD_HEIGHT, BOARD_WIDTH, CELL, PADDING, ROWS } from '../../utils';
 
 import { XiangqiBoardSection } from './XiangqiBoardSection';
 import { XiangqiRiverText } from './XiangqiRiverText';
