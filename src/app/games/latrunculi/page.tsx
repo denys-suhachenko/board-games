@@ -82,7 +82,7 @@ const rules = [
 const history = [
   {
     date: 'c. 116 BCE',
-    title: "Varro' mention",
+    title: "Varro's mention",
     description:
       'The polymath Marcus Terentius Varro names the game in De Lingua Latina — the earliest surviving reference to ludus latrunculorum by name.',
   },
