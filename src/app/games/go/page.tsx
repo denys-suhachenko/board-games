@@ -16,25 +16,25 @@ import { GoBoard } from '@/features/games/go/ui/board/GoBoard';
 const pieces = [
   {
     title: 'Stones',
-    sign: '將',
+    sign: '石',
     description:
       'Players take turns placing one stone of their color on any empty intersection. Stones do not move once placed — only captured.',
   },
   {
     title: 'Liberties',
-    sign: '士',
+    sign: '気',
     description:
       'Empty intersections directly adjacent to a stone. A stone or group with no liberties is captured and removed from the board.',
   },
   {
     title: 'Territory',
-    sign: '相',
+    sign: '地',
     description:
       'Empty intersections completely surrounded by one color count as that player’s points. The player with more territory wins.',
   },
   {
     title: 'Ko',
-    sign: '馬',
+    sign: '劫',
     description:
       'A capture that would immediately recreate the previous board position is forbidden. The threatened side must play elsewhere first.',
   },
@@ -279,6 +279,44 @@ export default function GoPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-10 border-t py-10">
+        <div className="flex items-center justify-between">
+          <h2 className="text-5xl font-medium">
+            Ready to <span className="text-primary">play?</span>
+          </h2>
+
+          <div className="flex items-center gap-x-4">
+            <Button
+              asChild
+              className="border-ring h-10 rounded-full px-8 shadow-md"
+            >
+              <Link href="/games">
+                Quick match
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-10 rounded-full px-8"
+            >
+              <Link href="/games">vs Engine</Link>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-10 rounded-full px-8"
+            >
+              <Link href="/games">vs Friend</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Container>

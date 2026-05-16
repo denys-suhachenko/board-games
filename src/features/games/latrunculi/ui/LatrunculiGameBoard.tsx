@@ -35,8 +35,8 @@ export function Piece({ cell }: PieceProps) {
         'transition duration-300',
         cell.color === 'black' ? 'hover:brightness-60' : 'hover:brightness-90',
       )}
-      width={80}
-      height={80}
+      width={56}
+      height={56}
     />
   );
 }
@@ -65,74 +65,21 @@ export function LatrunculiGameBoard() {
   const board = initBoard(7, 7);
 
   return (
-    <div className="rounded-sm bg-[#A75934] p-4 shadow-md/10">
-      <div className="border border-[#D9B06C] bg-[#A75934] p-8">
-        <div className="grid aspect-square grid-cols-7 grid-rows-7 border border-[#7A6148] bg-[#EACDA1] p-2">
-          {board.map((row, i) =>
-            row.map((cell, j) => {
-              return (
-                <div
-                  key={`${i}-${j}`}
-                  className={cn(
-                    '-mt-px -ml-px flex items-center justify-center border border-[#7A6148] bg-[#EACDA1] select-none',
-                  )}
-                >
-                  {cell && <Piece cell={cell} />}
-                </div>
-              );
-            }),
-          )}
-        </div>
-      </div>
+    <div className="grid aspect-square grid-cols-7 grid-rows-7 rounded-sm border bg-[#EACDA1] p-6 shadow-md/10">
+      {board.map((row, i) =>
+        row.map((cell, j) => {
+          return (
+            <div
+              key={`${i}-${j}`}
+              className={cn(
+                '-mt-px -ml-px flex items-center justify-center border border-[#7A6148] bg-[#EACDA1] select-none',
+              )}
+            >
+              {cell && <Piece cell={cell} />}
+            </div>
+          );
+        }),
+      )}
     </div>
   );
-}
-
-{
-  /* <div className="rounded-md border border-black bg-[#EFCFAD] p-1 shadow-(--board-shadow)">
-        <div className="rounded-md border border-white/50 bg-[#8D3C1C] p-6">
-          <div className="grid aspect-square grid-cols-7 grid-rows-7 rounded-sm border border-[#221504] bg-[#562C02]">
-            {board.map((row, i) =>
-              row.map((cell, j) => {
-                return (
-                  <div
-                    key={`${i}-${j}`}
-                    className={cn(
-                      'flex items-center justify-center rounded-xs border border-[#562C02] bg-[#CE9C6B] select-none md:rounded-sm',
-                    )}
-                  >
-                    {cell && <Piece cell={cell} />}
-                  </div>
-                );
-              }),
-            )}
-          </div>
-        </div>
-      </div> */
-}
-
-{
-  /* <div className="rounded-md border border-black bg-(--board-ceramic-border) p-2 shadow-(--board-shadow)">
-        <div className="rounded-md border border-white bg-(--board-ceramic-bg) p-2">
-          <div className="grid aspect-square grid-cols-7 grid-rows-7 bg-(--board-ceramic-cell-border)">
-            {board.map((row, i) =>
-              row.map((cell, j) => {
-                return (
-                  <div
-                    key={`${i}-${j}`}
-                    className={cn(
-                      'flex items-center justify-center rounded-xs border border-(--board-ceramic-cell-border) select-none md:rounded-sm',
-                      (i + j) % 2 === 0
-                        ? 'bg-(--board-ceramic-cell)'
-                        : 'bg-(--board-ceramic-cell-alternate)',
-                    )}
-                  >
-                    {cell && <Piece cell={cell} />}
-                  </div>
-                );
-              }),
-            )}
-          </div>
-        </div>
-      </div> */
 }

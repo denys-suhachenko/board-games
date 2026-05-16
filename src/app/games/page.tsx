@@ -27,7 +27,7 @@ const games = [
   },
   {
     id: 'latrunculi',
-    title: 'Latrunculi',
+    title: 'Latrunculi (LVDVS LATRVNCVLORVM)',
     img: '/categories/latrunculi.png',
     link: '/games/latrunculi',
     country: 'Ancient Rome',

@@ -11,7 +11,6 @@ import {
   BreadcrumbSeparator,
 } from '@/shared/ui/breadcrumb';
 import { Button } from '@/shared/ui/button';
-import { GoBoard } from '@/features/games/go/ui/board/GoBoard';
 
 const pieces = [
   {
@@ -295,6 +294,44 @@ export default function ShogiPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-10 border-t py-10">
+        <div className="flex items-center justify-between">
+          <h2 className="text-5xl font-medium">
+            Ready to <span className="text-primary">play?</span>
+          </h2>
+
+          <div className="flex items-center gap-x-4">
+            <Button
+              asChild
+              className="border-ring h-10 rounded-full px-8 shadow-md"
+            >
+              <Link href="/games">
+                Quick match
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-10 rounded-full px-8"
+            >
+              <Link href="/games">vs Engine</Link>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-10 rounded-full px-8"
+            >
+              <Link href="/games">vs Friend</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Container>

@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import { DicesIcon } from 'lucide-react';
+import { ArrowRightIcon, DicesIcon } from 'lucide-react';
 
 import { cn } from '../lib/utils';
-import { Button } from '../ui/button';
 import { Container } from './Container';
-import { ThemeToggle } from './ThemeToggle';
 
 type NavbarProps = {
   transparent?: boolean;
@@ -57,16 +55,24 @@ export function Navbar({ transparent }: NavbarProps) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle />
-
-          <Button variant="ghost" asChild>
-            <Link href="/">Sign in</Link>
-          </Button>
-
-          <Button asChild>
-            <Link href="/">Sign up</Link>
-          </Button>
+        <div className="hidden items-center gap-x-4 text-sm md:flex">
+          <Link
+            href="/"
+            className={cn(
+              'text-muted-foreground hover:text-foreground font-medium transition-colors',
+            )}
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/"
+            className={cn(
+              'text-primary flex items-center gap-x-1 font-medium transition-colors',
+            )}
+          >
+            Play
+            <ArrowRightIcon className="h-3 w-3" />
+          </Link>
         </div>
       </Container>
     </header>
