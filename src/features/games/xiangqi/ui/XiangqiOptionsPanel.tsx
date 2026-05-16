@@ -7,7 +7,7 @@ import { Label } from '@/shared/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/radio-group';
 import { ToggleGroup, ToggleGroupItem } from '@/shared/ui/toggle-group';
 
-export function GoOptionsPanel() {
+export function XiangqiOptionsPanel() {
   return (
     <aside className="space-y-4">
       <div className="bg-card space-y-6 rounded-md border p-4">
@@ -44,8 +44,13 @@ export function GoOptionsPanel() {
             </div>
 
             <div className="flex items-center gap-3">
-              <RadioGroupItem value="string" id="r3" />
+              <RadioGroupItem value="strong" id="r3" />
               <Label htmlFor="r3">Strong</Label>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <RadioGroupItem value="master" id="r4" />
+              <Label htmlFor="r3">Master</Label>
             </div>
           </RadioGroup>
         </Field>
@@ -62,21 +67,21 @@ export function GoOptionsPanel() {
             className="grid w-full grid-cols-3"
           >
             <ToggleGroupItem
+              value="red"
+              aria-label="Red"
+              className="flex h-18 flex-col items-center justify-center gap-2 rounded-xl"
+            >
+              <div className="size-4 shrink-0 rounded-full bg-red-700" />
+              <div className="text-muted-foreground text-sm">Red</div>
+            </ToggleGroupItem>
+            <ToggleGroupItem
               value="black"
               aria-label="Black"
               className="flex h-18 flex-col items-center justify-center gap-2 rounded-xl"
             >
-              <div className="size-4 shrink-0 rounded-full border border-black bg-gray-700" />
-              <div className="text-muted-foreground text-sm">Black</div>
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="white"
-              aria-label="White"
-              className="flex h-18 flex-col items-center justify-center gap-2 rounded-xl"
-            >
-              <div className="size-4 shrink-0 rounded-full border border-black bg-white" />
+              <div className="size-4 shrink-0 rounded-full bg-gray-700" />
               <div className="text-muted-foreground text-sm font-medium">
-                White
+                Black
               </div>
             </ToggleGroupItem>
             <ToggleGroupItem
@@ -85,29 +90,6 @@ export function GoOptionsPanel() {
               className="flex h-18 flex-col items-center justify-center gap-2 rounded-xl"
             >
               <div className="text-muted-foreground text-sm">Random</div>
-            </ToggleGroupItem>
-          </ToggleGroup>
-        </Field>
-
-        <Field>
-          <FieldLabel className="text-muted-foreground">Board size</FieldLabel>
-
-          <ToggleGroup
-            type="single"
-            defaultValue="19"
-            variant="outline"
-            className="grid w-full grid-cols-3 p-1"
-          >
-            <ToggleGroupItem value="9" className="w-full">
-              9x9
-            </ToggleGroupItem>
-
-            <ToggleGroupItem value="13" className="w-full">
-              13x13
-            </ToggleGroupItem>
-
-            <ToggleGroupItem value="19" className="w-full">
-              19x19
             </ToggleGroupItem>
           </ToggleGroup>
         </Field>
@@ -126,9 +108,9 @@ export function GoOptionsPanel() {
         </div>
 
         <ol className="text-muted-foreground marker:text-primary list-inside list-decimal space-y-2 text-sm/normal">
-          <li>Place stones on intersections.</li>
-          <li>Surround opponent stones to capture them.</li>
-          <li>Most surrounded territory wins.</li>
+          <li>Pieces move along lines, not squares.</li>
+          <li>Generals stay in their palaces.</li>
+          <li>Capture the enemy general to win.</li>
         </ol>
       </div>
     </aside>

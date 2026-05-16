@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Merriweather } from 'next/font/google';
 
-import { Navbar } from '@/shared/layout';
+import { Footer, Navbar } from '@/shared/layout';
+import { ThemeProvider } from '@/shared/providers/ThemeProvider';
 
 import './globals.css';
 
@@ -21,7 +22,7 @@ const mono = IBM_Plex_Mono({
 
 const serif = Merriweather({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   display: 'swap',
   variable: '--font-serif',
 });
@@ -40,8 +41,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${sans.variable} ${mono.variable} ${serif.variable} dark h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-screen flex-col">
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

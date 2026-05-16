@@ -4,35 +4,24 @@ import { DicesIcon } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { Button } from '../ui/button';
 import { Container } from './Container';
+import { ThemeToggle } from './ThemeToggle';
 
 type NavbarProps = {
   transparent?: boolean;
 };
 
 const navItems = [
-  // {
-  //   href: '/games/chess',
-  //   label: 'Chess',
-  // },
-  // {
-  //   href: '/games/checkers',
-  //   label: 'Checkers',
-  // },
   {
-    href: '/games/go',
-    label: 'Go',
-  },
-  // {
-  //   href: '/games/shogi',
-  //   label: 'Shogi',
-  // },
-  {
-    href: '/games/xiangqi',
-    label: 'Xiangqi',
+    href: '/games',
+    label: 'Games',
   },
   {
-    href: '/games/latrunculi',
-    label: 'Latrunculi',
+    href: '/',
+    label: 'Learn',
+  },
+  {
+    href: '/',
+    label: 'Journal',
   },
 ];
 
@@ -49,9 +38,9 @@ export function Navbar({ transparent }: NavbarProps) {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-x-2 font-semibold tracking-tight text-nowrap md:text-xl"
+          className="flex items-center gap-x-2 font-medium tracking-tight text-nowrap md:text-xl"
         >
-          <DicesIcon /> Board Games
+          <DicesIcon className="text-primary size-6" /> Board Games
         </Link>
 
         <nav className="flex items-center gap-6">
@@ -69,6 +58,8 @@ export function Navbar({ transparent }: NavbarProps) {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
+
           <Button variant="ghost" asChild>
             <Link href="/">Sign in</Link>
           </Button>

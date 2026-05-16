@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { XiangqiPiece } from '../../types';
 import { getPieceImage, HIT_SIZE_PERCENT } from '../../utils';
 
@@ -22,11 +24,14 @@ export function XiangqiPieceView({
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <img
+      <Image
         src={getPieceImage(piece)}
         alt={`${piece.side} ${piece.type}`}
         draggable={false}
         className="h-full w-full select-none"
+        width={100}
+        height={100}
+        loading="eager"
       />
     </button>
   );

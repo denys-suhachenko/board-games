@@ -8,7 +8,7 @@ export default function LatrunculiPage() {
         <div className="flex w-full items-center justify-center rounded-md border-2 border-[#B79B63] bg-[#EFE9DC] p-4 lg:p-8">
           <div className="flex flex-nowrap items-center gap-x-10">
             <Image
-              src="/laurel_wreath_left.svg"
+              src="/icons/laurel_wreath_left.svg"
               alt="laurel_wreath"
               className="hidden md:block"
               width={48}
@@ -18,7 +18,7 @@ export default function LatrunculiPage() {
               LVDVS LATRVNCVLORVM
             </h1>
             <Image
-              src="/laurel_wreath_right.svg"
+              src="/icons/laurel_wreath_right.svg"
               alt="laurel_wreath"
               className="hidden md:block"
               width={48}

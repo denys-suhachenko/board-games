@@ -6,15 +6,11 @@ import Link from 'next/link';
 const games = [
   {
     id: 'go',
-    title: 'Go (围棋/圍棋)',
+    title: 'Go (围棋)',
     img: '/categories/go_angle.png',
     link: '/games/go',
+    country: 'China',
   },
-  // {
-  //   id: 'chess',
-  //   title: 'Chess',
-  //   link: '/',
-  // },
   {
     id: 'xiangqi',
     title: 'Xiangqi (象棋)',
@@ -22,21 +18,13 @@ const games = [
     link: '/games/xiangqi',
     country: 'Ancient China',
   },
-  // {
-  //   id: 'backgammon',
-  //   title: 'Backgammon',
-  //   link: '/',
-  // },
-  // {
-  //   id: 'shogi',
-  //   title: 'Shogi',
-  //   link: '/',
-  // },
-  // {
-  //   id: 'checkers',
-  //   title: 'Checkers',
-  //   link: '/',
-  // },
+  {
+    id: 'shogi',
+    title: 'Shogi (将棋)',
+    img: '/categories/shogi.png',
+    link: '/games/shogi',
+    country: 'Japan',
+  },
   {
     id: 'latrunculi',
     title: 'Latrunculi',
@@ -58,7 +46,7 @@ export default function GamesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-4 gap-6 md:gap-10">
           {games.map((game) => (
             <Link key={game.id} href={game.link} className="group">
               <Image

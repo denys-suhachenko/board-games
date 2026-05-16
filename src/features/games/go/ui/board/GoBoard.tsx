@@ -29,7 +29,11 @@ export function GoBoard({ options }: GoBoardProps) {
     return {
       innerSize: inner,
       canvasSize: inner + options.padding * 2,
-      points: createBoardPoints(options),
+      points: createBoardPoints({
+        size: options.size,
+        cell: options.cell,
+        padding: options.padding,
+      }),
     };
   }, [options.size, options.cell, options.padding]);
 
@@ -50,7 +54,7 @@ export function GoBoard({ options }: GoBoardProps) {
   };
 
   return (
-    <div className="flex h-dvh items-center justify-center">
+    <div className="flex items-center justify-center">
       <svg
         viewBox={`0 0 ${canvasSize} ${canvasSize}`}
         role="img"

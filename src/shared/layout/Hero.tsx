@@ -7,9 +7,9 @@ import { Container, Navbar } from '@/shared/layout';
 
 export function Hero() {
   return (
-    <section className="relative h-dvh min-h-[640px] overflow-hidden">
+    <section className="relative overflow-hidden">
       <Image
-        src="/hero.png"
+        src="/hero.webp"
         alt="Classic board games including chess, go, shogi and xiangqi"
         fill
         preload
@@ -17,15 +17,9 @@ export function Hero() {
         className="object-cover object-right"
       />
 
-      <div className="absolute inset-0 bg-black/35" />
-
-      <Navbar transparent />
-
-      <Container className="relative z-10 flex min-h-[640px] flex-col justify-center">
-        <div className="mx-auto max-w-3xl text-center md:py-8">
-          <p className="text-primary mb-4 text-sm font-medium">
-            Play. Discover. Win.
-          </p>
+      <Container className="relative z-10 flex flex-col justify-center">
+        <div className="mx-auto min-h-[480px] max-w-3xl py-16 text-center text-white">
+          <p className="mb-8 text-sm font-medium">Play. Discover. Win.</p>
 
           <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Your World of Board Games Starts Here
@@ -52,7 +46,7 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="border-primary/30 h-12 min-w-[200px] rounded-full px-8 backdrop-blur-sm"
+              className="border-primary/30 text-foreground h-12 min-w-[200px] rounded-full px-8 backdrop-blur-sm"
             >
               <Link href="/">Sign up to play</Link>
             </Button>
