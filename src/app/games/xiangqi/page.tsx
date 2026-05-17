@@ -98,7 +98,7 @@ const rules = [
     title: 'The palace',
     chinese: '宮',
     description:
-      'A 3×3 region at each end, marked by diagonals. Generals and advisors are confined to it for the entire game.',
+      'A 3x3 region at each end, marked by diagonals. Generals and advisors are confined to it for the entire game.',
   },
   {
     order: '03',
@@ -135,6 +135,10 @@ export default function XiangqiPage() {
     <Container className="py-10">
       <Breadcrumb className="mb-8">
         <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink href="/games">Games</BreadcrumbLink>
           </BreadcrumbItem>

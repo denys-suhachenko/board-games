@@ -113,7 +113,7 @@ export function GoOptionsPanel() {
         </Field>
       </div>
 
-      <Button size="lg" className="w-full">
+      <Button size="lg" className="w-full" variant="secondary">
         Start new game
       </Button>
 

@@ -14,11 +14,11 @@ const navItems = [
     label: 'Games',
   },
   {
-    href: '/',
+    href: '/learn',
     label: 'Learn',
   },
   {
-    href: '/',
+    href: '/journal',
     label: 'Journal',
   },
 ];
@@ -27,7 +27,7 @@ export function Navbar({ transparent }: NavbarProps) {
   return (
     <header
       className={cn(
-        'relative z-50 w-full border-b transition-all duration-300',
+        'border-border/70 bg-background/80 relative z-50 w-full border-b transition-all duration-300',
         transparent
           ? 'backdrop-blur-sm dark:bg-zinc-900/10'
           : 'darkbg-zinc-900',

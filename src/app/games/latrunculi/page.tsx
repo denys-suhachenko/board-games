@@ -112,6 +112,10 @@ export default function LatrunculiPage() {
       <Breadcrumb className="mb-8">
         <BreadcrumbList>
           <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbLink href="/games">Games</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

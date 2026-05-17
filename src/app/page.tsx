@@ -86,7 +86,7 @@ export default function Home() {
                   {game.description}
                 </p>
 
-                <Button asChild className="mt-6">
+                <Button asChild className="mt-6 rounded-full px-4">
                   <Link href={`/games/${game.slug}`}>Play</Link>
                 </Button>
               </article>
@@ -127,9 +127,10 @@ export default function Home() {
 
           <div className="mt-6 grid grid-cols-3 gap-6">
             {articles.map((article) => (
-              <article
+              <Link
                 key={article.id}
-                className="bg-card rounded-md border p-6"
+                href={article.link}
+                className="bg-card group rounded-md border p-6 transition-transform hover:translate-y-[-3px]"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <Badge variant="secondary" className="uppercase">
@@ -140,14 +141,14 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-medium">
-                  <Link href={article.link}>{article.title}</Link>
+                <h3 className="group-hover:text-primary text-lg font-medium transition-colors">
+                  {article.title}
                 </h3>
 
                 <p className="text-muted-foreground mt-2 text-sm">
                   {article.description}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
         </Container>
