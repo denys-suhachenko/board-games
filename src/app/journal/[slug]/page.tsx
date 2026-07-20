@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Container } from '@/shared/layout';
@@ -9,8 +10,15 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from '@/shared/ui/breadcrumb';
+import { getArticleById, getArticles } from '@/features/journal/api/articles';
 
-export default function ArticlePage() {
+export default async function ArticlePage() {
+  const article = await getArticleById('lost-rules');
+
+  if (!article) {
+    return null;
+  }
+
   return (
     <Container className="py-10">
       <Breadcrumb className="mb-8">
@@ -46,7 +54,15 @@ export default function ArticlePage() {
       </header>
 
       <div className="mx-auto mb-20 px-10">
-        <div className="relative aspect-video border bg-[#1b222e]">
+        <div className="relative aspect-video overflow-hidden border">
+          <Image
+            src={article.image}
+            alt={article.title}
+            width={1280}
+            height={720}
+            loading="eager"
+            className="h-full w-full object-cover"
+          />
           <span className="bg-background text-muted-foreground absolute bottom-6 left-6 px-3 py-2 text-xs tracking-wider uppercase">
             Photo &middot; Latrunculi board, Vindolanda c. 200 CE
           </span>
@@ -221,43 +237,38 @@ export default function ArticlePage() {
       </article>
 
       <section className="border-t px-10 py-12">
-        <RelatedArticles />
+        <RelatedArticles currentId={article.id} />
       </section>
     </Container>
   );
 }
 
-const RELATED = [
-  {
-    id: '1',
-    title: 'Shatranj: the chess before chess',
-    tag: 'History',
-    date: 'Mar 2, 2026',
-  },
-  {
-    id: '2',
-    title: 'The 19th-century checkers boom',
-    tag: 'History',
-    date: 'Apr 12, 2026',
-  },
-  {
-    id: '3',
-    title: 'What Go teaches that chess cannot',
-    tag: 'Essay',
-    date: 'Apr 28, 2026',
-  },
-];
+async function RelatedArticles({ currentId }: { currentId: string }) {
+  const articles = await getArticles();
+  const related = articles.filter((item) => item.id !== currentId).slice(0, 3);
 
-function RelatedArticles() {
   return (
     <div>
       <div className="text-muted-foreground mb-8 text-xs font-medium tracking-wider uppercase">
         Related reading
       </div>
       <div className="grid grid-cols-3 gap-8">
-        {RELATED.map((article) => (
-          <Link key={article.id} href="/journal" className="group block">
-            <div className="mb-4 aspect-4/3 border bg-[#1b222e] transition-colors group-hover:border-gray-700" />
+        {related.map((article) => (
+          <Link
+            key={article.id}
+            href={`/journal/${article.id}`}
+            className="group block"
+          >
+            <div className="relative mb-4 aspect-4/3 overflow-hidden border transition-colors group-hover:border-gray-700">
+              <Image
+                src={article.image}
+                alt={article.title}
+                width={640}
+                height={480}
+                loading="eager"
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div className="text-muted-foreground mb-3 flex flex-wrap items-center gap-2 text-xs font-medium uppercase">
               <span>{article.tag}</span>
               &middot;

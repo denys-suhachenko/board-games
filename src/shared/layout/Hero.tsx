@@ -1,10 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/shared/ui/button';
 import { Container } from '@/shared/layout';
-import { ChessHero } from '@/features/games/chess/ui/ChessHero';
-import { LatrunculiGameBoard } from '@/features/games/latrunculi/ui/LatrunculiGameBoard';
 
 export function Hero() {
   return (
@@ -56,7 +55,14 @@ export function Hero() {
           </div>
 
           <div className="w-full max-w-[560px] justify-self-end">
-            <ChessHero />
+            <Image
+              src="/hero_img.png"
+              alt="Game board"
+              width={560}
+              height={560}
+              loading="eager"
+              className="aspect-square h-full w-full rounded-md border object-cover"
+            />
           </div>
         </div>
       </Container>

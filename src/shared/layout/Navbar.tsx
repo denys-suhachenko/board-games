@@ -3,6 +3,8 @@ import { ArrowRightIcon, DicesIcon } from 'lucide-react';
 
 import { cn } from '../lib/utils';
 import { Container } from './Container';
+import { ThemeToggle } from './ThemeToggle';
+import { SignInDialog } from '@/features/auth/ui/SignInDialog';
 
 type NavbarProps = {
   transparent?: boolean;
@@ -56,14 +58,8 @@ export function Navbar({ transparent }: NavbarProps) {
         </nav>
 
         <div className="hidden items-center gap-x-4 text-sm md:flex">
-          <Link
-            href="/"
-            className={cn(
-              'text-muted-foreground hover:text-foreground font-medium transition-colors',
-            )}
-          >
-            Sign in
-          </Link>
+          <ThemeToggle />
+          <SignInDialog />
           <Link
             href="/"
             className={cn(

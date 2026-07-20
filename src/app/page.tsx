@@ -1,10 +1,10 @@
 import Link from 'next/link';
+import { ArrowRightIcon } from 'lucide-react';
 
 import { Container, Hero } from '@/shared/layout';
 import { Button } from '@/shared/ui/button';
 import { ToggleGroup, ToggleGroupItem } from '@/shared/ui/toggle-group';
 import { Badge } from '@/shared/ui/badge';
-import { ArrowRightIcon } from 'lucide-react';
 
 const games = [
   {

@@ -15,13 +15,11 @@ export function XiangqiPieceView({
   return (
     <button
       type="button"
-      className="absolute cursor-pointer rounded-full transition-[left,top,transform] duration-200 ease-out"
+      className="absolute aspect-square -translate-1/2 cursor-pointer rounded-full transition-[left,top,transform] duration-200 ease-out"
       style={{
         left: `${left}%`,
         top: `${top}%`,
         width: `${HIT_SIZE_PERCENT}%`,
-        aspectRatio: '1 / 1',
-        transform: 'translate(-50%, -50%)',
       }}
     >
       <Image
