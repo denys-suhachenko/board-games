@@ -2,10 +2,10 @@
 
 A modern web experience for discovering and learning traditional strategy games.
 
-[Live demo](https://board-games-omega.vercel.app)
-[Browse games](https://board-games-omega.vercel.app/games)
-[Learn](https://board-games-omega.vercel.app/learn)
-[Journal](https://board-games-omega.vercel.app/journal)
+- [Live demo](https://board-games-omega.vercel.app)
+- [Browse games](https://board-games-omega.vercel.app/games)
+- [Learn](https://board-games-omega.vercel.app/learn)
+- [Journal](https://board-games-omega.vercel.app/journal)
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-20232a?logo=react&logoColor=61dafb)
