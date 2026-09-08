@@ -9,12 +9,14 @@ import { BoardDefs } from './BoardDefs';
 import { GoBoardGrid } from './GoBoardGrid';
 import { GoHitAreas } from './GoHitAreas';
 import { GoBoardStones } from './BoardStones';
+import { GoAnalysisPanel } from './GoAnalysisPanel';
 
 type GoBoardProps = {
   options: GoBoardOptions;
+  showAnalysis?: boolean;
 };
 
-export function GoBoard({ options }: GoBoardProps) {
+export function GoBoard({ options, showAnalysis = false }: GoBoardProps) {
   const [game, setGame] = useState<{
     board: GoBoardType;
     turn: Exclude<GoStone, null>;
@@ -54,7 +56,7 @@ export function GoBoard({ options }: GoBoardProps) {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center gap-4">
       <svg
         viewBox={`0 0 ${canvasSize} ${canvasSize}`}
         role="img"
@@ -78,6 +80,14 @@ export function GoBoard({ options }: GoBoardProps) {
           onClick={applyMove}
         />
       </svg>
+
+      {showAnalysis && (
+        <GoAnalysisPanel
+          board={game.board}
+          size={options.size}
+          turn={game.turn}
+        />
+      )}
     </div>
   );
 }

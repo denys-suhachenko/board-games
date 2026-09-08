@@ -26,6 +26,7 @@ export default function GoGamePage() {
               cell: 32,
               padding: 32,
             }}
+            showAnalysis
           />
 
           <div className="mt-8 flex items-center justify-between">

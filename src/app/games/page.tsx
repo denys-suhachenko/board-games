@@ -20,7 +20,7 @@ const games = [
     title: 'Go',
     description:
       'An ancient game of territory and influence. Capture more ground than your opponent.',
-    img: '/categories/go_angle.png',
+    img: '/categories/go/go_angle.png',
     link: '/games/go',
     country: 'China',
     category: 'Abstract',
@@ -31,7 +31,7 @@ const games = [
     id: 'xiangqi',
     title: 'Xiangqi',
     description: 'A river divides the board. Generals never meet face-to-face.',
-    img: '/categories/xiangqi.png',
+    img: '/categories/xiangqi/xiangqi.png',
     link: '/games/xiangqi',
     country: 'Ancient China',
     category: 'Wargame',
@@ -43,7 +43,7 @@ const games = [
     title: 'Shogi',
     description:
       'Captured pieces switch sides and re-enter play. The most aggressive of the chess family.',
-    img: '/categories/shogi.png',
+    img: '/categories/shogi/shogi.png',
     link: '/games/shogi',
     country: 'Japan',
     category: 'Wargame',
@@ -55,7 +55,7 @@ const games = [
     title: 'Latrunculi',
     description:
       'A strategic game from the Roman Empire. Build formations and outflank your rival.',
-    img: '/categories/latrunculi.png',
+    img: '/categories/latrunculi/4b3e643e.png',
     link: '/games/latrunculi',
     country: 'Ancient Rome',
     category: 'Historical',

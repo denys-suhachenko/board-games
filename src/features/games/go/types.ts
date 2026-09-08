@@ -19,3 +19,13 @@ export type GoStonePoint = GoStonePosition & {
 export type GoStone = 'white' | 'black' | null;
 
 export type GoBoard = GoStone[][];
+
+export type GoAnalysisRequest = {
+  board: GoBoard;
+  size: GoBoardSize;
+  turn: Exclude<GoStone, null>;
+};
+
+export type GoAnalysisResponse = {
+  commentary: string;
+};
