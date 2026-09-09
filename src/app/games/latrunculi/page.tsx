@@ -186,7 +186,7 @@ export default function LatrunculiPage() {
               asChild
               className="shadow-primary/20 border-ring h-10 rounded-full px-8 shadow-md"
             >
-              <Link href="/games">
+              <Link href="#">
                 Play now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -198,7 +198,7 @@ export default function LatrunculiPage() {
               size="lg"
               className="border-primary/30 h-10 rounded-full px-8 backdrop-blur-sm"
             >
-              <Link href="/games">Read the rules</Link>
+              <Link href="#">Read the rules</Link>
             </Button>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function LatrunculiPage() {
               asChild
               className="border-ring h-10 rounded-full px-8 shadow-md"
             >
-              <Link href="/games">
+              <Link href="#">
                 Quick match
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -300,7 +300,7 @@ export default function LatrunculiPage() {
               size="lg"
               className="h-10 rounded-full px-8"
             >
-              <Link href="/games">vs Engine</Link>
+              <Link href="#">vs Engine</Link>
             </Button>
 
             <Button
@@ -309,7 +309,7 @@ export default function LatrunculiPage() {
               size="lg"
               className="h-10 rounded-full px-8"
             >
-              <Link href="/games">vs Friend</Link>
+              <Link href="#">vs Friend</Link>
             </Button>
           </div>
         </div>

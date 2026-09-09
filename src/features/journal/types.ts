@@ -8,5 +8,4 @@ export type Article = {
   author: string;
   thumb: string;
   image: string;
-  feature?: boolean;
 };

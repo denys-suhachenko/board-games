@@ -1,68 +1,84 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import {
+  ArrowRightIcon,
+  BookOpenIcon,
+  ChartNoAxesColumnIncreasingIcon,
+  UsersIcon,
+} from 'lucide-react';
 
 import { Button } from '@/shared/ui/button';
 import { Container } from '@/shared/layout';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <Container className="relative z-10 flex flex-col justify-center">
-        <div className="grid grid-cols-2 py-20">
-          <div>
-            <p className="text-muted-foreground mb-6 text-sm">
-              Play &middot; Discover &middot; Win.
-            </p>
+    <section className="relative isolate min-h-155 overflow-hidden border-b">
+      <Image
+        src="/hero-board-games.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-[72%_center] md:object-[68%_center]"
+      />
 
-            <h1 className="mb-6 text-4xl font-medium tracking-tight sm:text-6xl md:text-7xl">
-              The eternal games,{' '}
-              <span className="text-primary">played anywhere.</span>
-            </h1>
+      <div className="from-background via-background/95 to-background/60 md:via-background/90 md:to-background/20 absolute inset-0 -z-10 bg-linear-to-r" />
 
-            <div className="text-muted-foreground mb-10 space-y-2 text-base leading-7 sm:text-lg">
-              <p>
-                Find the perfect board game for quiet evenings, shared laughs,
-                and memorable nights.
-              </p>
-              <p>
-                Chess, Go, Xiangqi — against people, against engines, at any
-                strength. No downloads, no accounts to start.
-              </p>
-            </div>
+      <div className="bg-background/10 absolute inset-0 -z-10" />
 
-            <div className="flex flex-wrap gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="shadow-primary/20 border-ring h-12 min-w-[200px] rounded-full px-8 shadow-md"
-              >
-                <Link href="/games">
-                  Play now
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-primary/30 text-foreground h-12 min-w-[200px] rounded-full px-8 backdrop-blur-sm"
-              >
-                <Link href="/">Learn the rules</Link>
-              </Button>
-            </div>
+      <Container className="min-h-155">
+        <div className="max-w-2xl py-20">
+          <div className="text-muted-foreground mb-6 text-sm font-medium">
+            Play &middot; Discover &middot; Win.
           </div>
 
-          <div className="w-full max-w-[560px] justify-self-end">
-            <Image
-              src="/hero_img.png"
-              alt="Game board"
-              width={560}
-              height={560}
-              loading="eager"
-              className="aspect-square h-full w-full rounded-md border object-cover"
-            />
+          <h1 className="mb-6 text-5xl font-medium tracking-tight sm:text-6xl md:text-7xl">
+            The eternal games,
+            <br />
+            <span className="text-primary">played anywhere.</span>
+          </h1>
+
+          <p className="text-muted-foreground mt-6 max-w-xl text-base leading-7 md:text-lg">
+            Classic board games for modern minds. Play online, learn new
+            strategies, and join a global community that keeps these timeless
+            games alive.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="shadow-primary/20 border-ring h-12 min-w-50 rounded-full px-8 shadow-md"
+            >
+              <Link href="/games">
+                Play now
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary/30 text-foreground h-12 min-w-50 rounded-full px-8 backdrop-blur-sm"
+            >
+              <Link href="/learn">Learn the rules</Link>
+            </Button>
+          </div>
+
+          <div className="text-muted-foreground mt-12 flex flex-wrap gap-x-10 gap-y-3 text-sm">
+            <div className="flex flex-nowrap items-center gap-3">
+              <UsersIcon />
+              Play with people worldwide
+            </div>
+            <div className="flex flex-nowrap items-center gap-3">
+              <BookOpenIcon />
+              Learn with guides
+            </div>
+            <div className="flex flex-nowrap items-center gap-3">
+              <ChartNoAxesColumnIncreasingIcon />
+              Grow your strategy skills
+            </div>
           </div>
         </div>
       </Container>

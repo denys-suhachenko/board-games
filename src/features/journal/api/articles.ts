@@ -6,20 +6,19 @@ const ARTICLES: Article[] = [
     tag: 'History',
     title: 'The lost rules of Latrunculi',
     description:
-      'Roman soldiers played it across an empire, but the exact rules vanished with Rome. A century of scholarship has tried to reassemble them from poetry, mosaics, and broken boards — with predictably partial results.',
+      'Roman soldiers played it across an empire, but the exact rules vanished with Rome.',
     date: 'May 12, 2026',
     read: '14 min',
     author: 'Marcus Bell',
     thumb: 'POSITIO LATRUNCULORUM · BRITAIN c. 200 CE',
-    image: '/articles/latrunculi.png',
-    feature: true,
+    image: '/articles/ancient_latrunculi_board.webp',
   },
   {
     id: 'go-vs-chess',
     tag: 'Essay',
     title: 'What Go teaches that chess cannot',
     description:
-      'Two ancient games, two utterly different theories of conflict. A look at how the geometry of a 19×19 grid shapes a player’s mind in ways the 64 squares never can.',
+      'Two ancient games, two utterly different theories of conflict.',
     date: 'Apr 28, 2026',
     read: '12 min',
     author: 'Yuki Tanaka',
@@ -31,7 +30,7 @@ const ARTICLES: Article[] = [
     tag: 'Profile',
     title: 'The last living grandmasters of Xiangqi street play',
     description:
-      'In Guangzhou, a generation of park players resists the pull of the screen. We spent a week with them at the People’s Park boards.',
+      'In Guangzhou, a generation of park players resists the pull of the screen.',
     date: 'Apr 24, 2026',
     read: '9 min',
     author: 'Linh Pham',
@@ -42,20 +41,19 @@ const ARTICLES: Article[] = [
     id: 'engines-converge',
     tag: 'Analysis',
     title: 'Why every chess engine eventually plays the same way',
-    description:
-      'Stockfish, Leela, Komodo. Three top engines, one position. The convergence is unsettling — and reveals something quiet about what chess actually is.',
+    description: 'Stockfish, Leela, Komodo. Three top engines, one position.',
     date: 'Apr 19, 2026',
     read: '11 min',
     author: 'Anders Nilsson',
     thumb: 'EVAL DIAGRAM · POSITION 81',
-    image: '/articles/latrunculi.png',
+    image: '/articles/ancient_latrunculi_board.webp',
   },
   {
     id: 'checkers-boom',
     tag: 'History',
     title: 'The 19th-century checkers boom',
     description:
-      'For a game now mostly played by children and computers, draughts once filled European tournament halls. The story of how it rose, peaked, and was solved.',
+      'For a game now mostly played by children and computers, draughts once filled European tournament halls.',
     date: 'Apr 12, 2026',
     read: '8 min',
     author: 'Edith Caldwell',
@@ -67,7 +65,7 @@ const ARTICLES: Article[] = [
     tag: 'Essay',
     title: 'The drop rule changes everything',
     description:
-      'Captured pieces switch sides. Three words that turn the chess family upside down. A close reading of shogi’s most distinctive idea — and what it costs to play it well.',
+      'Captured pieces switch sides. Three words that turn the chess family upside down.',
     date: 'Apr 5, 2026',
     read: '10 min',
     author: 'Yuki Tanaka',
@@ -84,14 +82,14 @@ const ARTICLES: Article[] = [
     read: '18 min',
     author: 'Per Olafsson',
     thumb: 'PORTRAIT · OSLO 2026',
-    image: '/articles/latrunculi.png',
+    image: '/articles/ancient_latrunculi_board.webp',
   },
   {
     id: 'alphago',
     tag: 'Analysis',
     title: 'Re-reading move 37, ten years on',
     description:
-      'AlphaGo’s move 37 in game 2 against Lee Sedol shocked professionals in 2016. A decade later, what looked like a mistake reads as the first sentence of a new dialect.',
+      'AlphaGo’s move 37 in game 2 against Lee Sedol shocked professionals in 2016.',
     date: 'Mar 14, 2026',
     read: '15 min',
     author: 'Yuki Tanaka',
@@ -103,12 +101,12 @@ const ARTICLES: Article[] = [
     tag: 'History',
     title: 'Shatranj: the chess before chess',
     description:
-      'The 7th-century Persian ancestor of every chess in the world. Its queen moved one square. Its bishop jumped exactly two. Both moves were lost to time — for good reason.',
+      'The 7th-century Persian ancestor of every chess in the world. Its queen moved one square.',
     date: 'Mar 2, 2026',
     read: '7 min',
     author: 'Reza Akbari',
     thumb: 'MANUSCRIPT · BAGHDAD c. 850',
-    image: '/articles/latrunculi.png',
+    image: '/articles/ancient_latrunculi_board.webp',
   },
 ];
 

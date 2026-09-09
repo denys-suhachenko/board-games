@@ -14,12 +14,12 @@ const games = [
   },
   {
     title: 'Xiangqi',
-    description: 'Chinese chess. Cross the river, capture the king.',
+    description: 'Cross the river, capture the king.',
     slug: 'xiangqi',
   },
   {
     title: 'Shogi',
-    description: 'Japanese chess. Captured pieces switch sides.',
+    description: 'Captured pieces switch sides.',
     slug: 'shogi',
   },
   {

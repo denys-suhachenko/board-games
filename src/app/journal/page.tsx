@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Container } from '@/shared/layout';
-import { cn } from '@/shared/lib/utils';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -11,31 +10,15 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from '@/shared/ui/breadcrumb';
-import { ToggleGroup, ToggleGroupItem } from '@/shared/ui/toggle-group';
-import { getArticles } from '@/features/journal/api/articles';
+import { Card, CardContent, CardHeader } from '@/shared/ui/card';
 
-const filterItems = [
-  {
-    label: 'All',
-    value: 'all',
-  },
-  {
-    label: 'Essay',
-    value: 'essay',
-  },
-  {
-    label: 'Profile',
-    value: 'profile',
-  },
-  {
-    label: 'History',
-    value: 'history',
-  },
-  {
-    label: 'Analysis',
-    value: 'analysis',
-  },
-];
+import { getArticles } from '@/features/journal/api/articles';
+import { ArticleCard } from '@/features/journal/ui/ArticleCard';
+import { ArticlesFilter } from '@/features/journal/ui/ArticlesFilter';
+import { ButtonGroup } from '@/shared/ui/button-group';
+import { Input } from '@/shared/ui/input';
+import { Button } from '@/shared/ui/button';
+import { ArticlesSidebar } from '@/features/journal/ui/ArticlesSidebar';
 
 export default async function JournalPage() {
   const articles = await getArticles();
@@ -60,92 +43,19 @@ export default async function JournalPage() {
         </h1>
       </header>
 
-      <div className="border-y py-6">
-        <div className="flex items-center gap-x-6">
-          <div className="text-muted-foreground text-sm">Filter by tag</div>
-          <ToggleGroup
-            type="single"
-            defaultValue="all"
-            variant="outline"
-            spacing={2}
-          >
-            {filterItems.map((item) => (
-              <ToggleGroupItem
-                key={item.value}
-                value={item.value}
-                aria-label={item.label}
-                className="rounded-full"
-              >
-                <div className="text-muted-foreground text-sm">
-                  {item.label}
-                </div>
-              </ToggleGroupItem>
-            ))}
-          </ToggleGroup>
-        </div>
-      </div>
+      <div className="grid grid-cols-[3fr_1fr] gap-x-6">
+        <div>
+          <ArticlesFilter />
 
-      <main className="grid grid-cols-3 gap-6 pt-10 pb-20">
-        {articles.map((article, index) => (
-          <Link
-            key={article.id}
-            href={`/journal/${article.id}`}
-            className={cn(
-              'group bg-card col-span-1 flex cursor-pointer flex-col overflow-hidden rounded-md border transition-transform hover:translate-y-[-3px]',
-              index === 0 && 'flex-col md:col-span-2 md:flex-row',
-            )}
-          >
-            <div
-              className={cn(
-                'relative aspect-4/3 shrink-0 overflow-hidden border-b',
-                index === 0 &&
-                  'aspect-video md:aspect-auto md:min-w-[50%] md:border-r md:border-b-0',
-              )}
-            >
-              <Image
-                src={article.image}
-                alt={article.title}
-                width={640}
-                height={480}
-                loading="eager"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="flex min-w-0 flex-1 flex-col p-6">
-              <div className="text-muted-foreground mb-3 flex flex-wrap items-center gap-2 text-xs font-medium uppercase">
-                <span className="text-primary">{article.tag}</span>
-                &middot;
-                <span>{article.date}</span>
-                &middot;
-                <span>{article.read}</span>
-              </div>
-              <h2
-                className={cn(
-                  'group-hover:text-primary mb-3 leading-[1.2] font-medium text-pretty transition-colors',
-                  index === 0
-                    ? 'mb-4 text-2xl tracking-[-0.02em] md:text-4xl'
-                    : 'mb-3 text-xl tracking-[-0.01em]',
-                )}
-              >
-                {article.title}
-              </h2>
-              <p
-                className={cn(
-                  'mb-4 text-pretty text-gray-300',
-                  index === 0
-                    ? 'text-[15px] leading-[1.6]'
-                    : 'text-sm leading-[1.55]',
-                )}
-              >
-                {article.description}
-              </p>
-              <div className="text-muted-foreground mt-auto border-t pt-4 text-xs uppercase">
-                By {article.author}
-              </div>
-            </div>
-          </Link>
-        ))}
-      </main>
+          <main className="grid gap-6 py-10 md:grid-cols-2 lg:grid-cols-3">
+            {articles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </main>
+        </div>
+
+        <ArticlesSidebar />
+      </div>
     </Container>
   );
 }

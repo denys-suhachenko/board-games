@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Container } from '@/shared/layout';
 import {
@@ -11,9 +10,20 @@ import {
   BreadcrumbPage,
 } from '@/shared/ui/breadcrumb';
 import { getArticleById, getArticles } from '@/features/journal/api/articles';
+import { RelatedArticles } from '@/features/journal/ui/RelatedArticles';
 
-export default async function ArticlePage() {
-  const article = await getArticleById('lost-rules');
+type ArticlePageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const article = await getArticleById(slug);
+
+  const articles = await getArticles();
+  const related = articles.slice(0, 3);
 
   if (!article) {
     return null;
@@ -32,20 +42,22 @@ export default async function ArticlePage() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Lost rules</BreadcrumbPage>
+            <BreadcrumbPage>{article.title}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <header className="mx-auto max-w-4xl px-10 py-12">
+      <header className="article-header">
         <div className="text-muted-foreground mb-8 flex flex-wrap items-center gap-2 text-xs font-medium uppercase">
-          <span className="text-primary">History</span> &middot;{' '}
-          <span>May 12, 2026</span> &middot; <span>14 min read</span>
+          <span className="text-primary">{article.tag}</span> &middot;{' '}
+          <span>{article.date}</span> &middot; <span>{article.read}</span>
         </div>
+
         <h1 className="mb-6 text-7xl leading-[1.05] font-medium tracking-tight text-balance">
-          The lost rules of Latrunculi.
+          {article.title}
         </h1>
-        <p className="text-muted-foreground text-xl leading-[1.4] text-pretty">
+
+        <p className="text-muted-foreground text-lg leading-[1.4] text-pretty">
           Roman soldiers played it across an empire of three continents, but the
           exact rules vanished with Rome itself. A century of scholarship has
           tried to reassemble them from poems, mosaics, and broken boards — with
@@ -53,7 +65,7 @@ export default async function ArticlePage() {
         </p>
       </header>
 
-      <div className="mx-auto mb-20 px-10">
+      <div className="mx-auto mb-20 max-w-6xl px-10">
         <div className="relative aspect-video overflow-hidden border">
           <Image
             src={article.image}
@@ -125,19 +137,6 @@ export default async function ArticlePage() {
           milites (soldiers) and gives us the word for the game's central
           tactical idea: captura, the capture.
         </p>
-
-        <div className="diagram-figure">
-          <div className="diagram-label">
-            Figure 1 &middot; Capture by flanking
-          </div>
-          <div className="mini-board" />
-          <div className="diagram-caption">
-            A black stone (marked) is flanked horizontally by two white stones.
-            By the rule reconstructed from Varro and Ovid, the flanked stone is
-            captured and removed from play. The two flanking stones move;{' '}
-            <strong>one stone falls</strong>.
-          </div>
-        </div>
 
         <h2>
           <span className="num">02 — The reconstruction</span>
@@ -237,49 +236,8 @@ export default async function ArticlePage() {
       </article>
 
       <section className="border-t px-10 py-12">
-        <RelatedArticles currentId={article.id} />
+        <RelatedArticles articles={related} />
       </section>
     </Container>
-  );
-}
-
-async function RelatedArticles({ currentId }: { currentId: string }) {
-  const articles = await getArticles();
-  const related = articles.filter((item) => item.id !== currentId).slice(0, 3);
-
-  return (
-    <div>
-      <div className="text-muted-foreground mb-8 text-xs font-medium tracking-wider uppercase">
-        Related reading
-      </div>
-      <div className="grid grid-cols-3 gap-8">
-        {related.map((article) => (
-          <Link
-            key={article.id}
-            href={`/journal/${article.id}`}
-            className="group block"
-          >
-            <div className="relative mb-4 aspect-4/3 overflow-hidden border transition-colors group-hover:border-gray-700">
-              <Image
-                src={article.image}
-                alt={article.title}
-                width={640}
-                height={480}
-                loading="eager"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="text-muted-foreground mb-3 flex flex-wrap items-center gap-2 text-xs font-medium uppercase">
-              <span>{article.tag}</span>
-              &middot;
-              <span>{article.date}</span>
-            </div>
-            <h3 className="group-hover:text-primary text-xl leading-5 font-medium tracking-[-0.01em] transition-colors">
-              {article.title}
-            </h3>
-          </Link>
-        ))}
-      </div>
-    </div>
   );
 }
