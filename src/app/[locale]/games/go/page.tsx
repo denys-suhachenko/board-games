@@ -246,7 +246,7 @@ export default function GoPage() {
 
       <section className="mt-10 border-t py-10">
         <h2 className="mb-12 text-5xl font-medium">
-          Six rules, <span className="text-primary">that's all.</span>
+          Six rules, <span className="text-primary">that&apos;s all.</span>
         </h2>
 
         <div className="bg-border grid grid-cols-3 gap-px border">

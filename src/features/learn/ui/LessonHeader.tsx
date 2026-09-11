@@ -3,23 +3,26 @@ import { Badge } from '@/shared/ui/badge';
 import type { LessonSummary } from '../types';
 
 export function LessonHeader({
-  game,
   lesson,
-  totalLessons,
+  labels,
 }: {
-  game: string;
   lesson: LessonSummary;
-  totalLessons: number;
+  labels: {
+    number: string;
+    progress: string;
+    readingTime: string;
+    level: string;
+  };
 }) {
   return (
     <header className="mb-10 border-b pb-10">
       <div className="flex max-w-3xl flex-col gap-4">
         <div className="flex flex-wrap items-center gap-3">
           <p className="text-primary text-xs font-medium tracking-widest uppercase">
-            {game} &middot; Lesson {lesson.order}
+            {labels.number}
           </p>
           <Badge variant="secondary" className="uppercase">
-            {lesson.level}
+            {labels.level}
           </Badge>
         </div>
         <h1 className="text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
@@ -32,12 +35,10 @@ export function LessonHeader({
           {lesson.readingMinutes && (
             <span className="flex items-center gap-2">
               <ClockIcon className="size-4" aria-hidden="true" />
-              {lesson.readingMinutes} min read
+              {labels.readingTime}
             </span>
           )}
-          <span>
-            Lesson {lesson.order} of {totalLessons}
-          </span>
+          <span>{labels.progress}</span>
         </div>
       </div>
     </header>

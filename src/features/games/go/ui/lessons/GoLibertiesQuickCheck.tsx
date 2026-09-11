@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useId, useState } from 'react';
 import { CheckCircle2Icon, RotateCcwIcon } from 'lucide-react';
 import { Button } from '@/shared/ui/button';
@@ -10,6 +12,8 @@ const stone = { x: 2, y: 2, color: 'black' } as const;
 type Point = { x: number; y: number };
 
 export function GoLibertiesQuickCheck() {
+  const t = useTranslations('go.lessons.exercises.liberties');
+  const common = useTranslations('common.exercises');
   const questionId = useId();
   const [found, setFound] = useState<Point[]>([]);
   const [feedback, setFeedback] = useState('');
@@ -24,11 +28,9 @@ export function GoLibertiesQuickCheck() {
 
     if (Math.abs(x - stone.x) + Math.abs(y - stone.y) === 1) {
       setFound((previous) => [...previous, { x, y }]);
-      setFeedback('Correct — that intersection is a liberty.');
+      setFeedback(t('correct'));
     } else {
-      setFeedback(
-        'Not quite. A liberty must be directly beside the stone along a grid line.',
-      );
+      setFeedback(t('incorrect'));
     }
   }
 
@@ -39,11 +41,11 @@ export function GoLibertiesQuickCheck() {
       className="flex flex-col gap-4"
     >
       <p id={questionId} className="font-medium">
-        Which intersections are liberties of the black stone?
+        {t('question')}
       </p>
       <GoLessonDiagram
-        label="Select intersections on a five by five Go board. One black stone is in the center. Rows are numbered from top to bottom and columns from left to right."
-        caption="Select the four liberties. Use Tab to focus an intersection and Enter or Space to select it."
+        label={t('label')}
+        caption={t('caption')}
         stones={[stone]}
         markers={found}
         onIntersectionClick={selectIntersection}
@@ -54,7 +56,7 @@ export function GoLibertiesQuickCheck() {
           aria-live="polite"
           aria-atomic="true"
         >
-          Liberties found: {found.length} / 4
+          {t('progress', { count: found.length })}
         </p>
         <Button
           type="button"
@@ -64,11 +66,11 @@ export function GoLibertiesQuickCheck() {
           onClick={() => {
             setFound([]);
             setHasSelected(false);
-            setFeedback('Exercise reset. Find all four liberties.');
+            setFeedback(t('reset'));
           }}
         >
           <RotateCcwIcon data-icon="inline-start" />
-          Reset exercise
+          {common('reset')}
         </Button>
       </div>
       <div
@@ -83,8 +85,7 @@ export function GoLibertiesQuickCheck() {
               aria-hidden="true"
               className="mt-1 size-4 shrink-0"
             />
-            All four liberties found! Each is an empty intersection directly
-            adjacent to the black stone.
+            {t('success')}
           </p>
         ) : (
           feedback && <p>{feedback}</p>

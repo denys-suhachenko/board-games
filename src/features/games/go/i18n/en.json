@@ -1,1 +1,600 @@
-{}
+{
+  "lessons": {
+    "stonesLibertiesTerritory": {
+      "sections": {
+        "overview": {
+          "title": "Overview",
+          "paragraph1": "Go starts with an empty board. Two players take turns placing black and white stones, building connected groups and surrounding empty space. A move can protect your stones, threaten your opponent’s, or help claim territory.",
+          "paragraph2": "By the end of this lesson, you will be able to place a stone, count a group’s liberties, and recognize a capture. The small boards below show local examples of ideas that also apply on a full board."
+        },
+        "stones": {
+          "title": "Stones",
+          "paragraph1": "Black plays first. Place a stone on an empty intersection, including an edge or corner, rather than inside a square. Once played, a stone stays there unless it is captured.",
+          "paragraph2": "Stones of the same color form a connected group when they touch along the grid lines. Diagonal neighbors are not connected.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A five by five grid with two connected black stones in the center and one separate white stone near the top right.",
+              "caption": "The two black stones share a line and form one group."
+            }
+          }
+        },
+        "liberties": {
+          "title": "Liberties",
+          "paragraph1": "A liberty is an empty intersection immediately next to a stone along a grid line. Diagonal spaces do not count. An isolated stone in the center has four liberties; on an empty edge it has three, and in a corner it has two.",
+          "paragraph2": "Connected stones share their liberties. Count each empty intersection touching the group once, even if it touches more than one stone in that group.",
+          "diagrams": {
+            "diagram1": {
+              "label": "One black stone at the center with its four adjacent empty intersections marked.",
+              "caption": "The four highlighted points are this stone’s liberties."
+            }
+          }
+        },
+        "capturing": {
+          "title": "Capturing",
+          "paragraph1": "When a move fills the last liberty of an opposing stone or connected group, that whole group is removed from the board. A group with only one liberty left is in <em>atari</em>.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A white center stone surrounded by black on three sides, with one marked liberty below.",
+              "caption": "Before: White is in atari. The highlighted point is its last liberty."
+            },
+            "diagram2": {
+              "label": "Four black stones surround an empty center after the white stone has been captured.",
+              "caption": "After: Black fills the last liberty. The white stone is removed."
+            }
+          },
+          "paragraph2": "Capturing opens new liberties. There are also rules about self-capture and repeating positions, including ko; this first example focuses on a straightforward capture."
+        },
+        "summary": {
+          "title": "Summary",
+          "paragraph1": "Territory is empty space enclosed by your living stones. The edges of the board can help form its boundary. Capturing is useful, but surrounding space is central to the game.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Black stones form a boundary around four marked empty intersections in the upper left corner.",
+              "caption": "The four highlighted points illustrate enclosed space. In a real game, territory depends on the surrounding groups remaining alive; scoring details vary by ruleset."
+            }
+          },
+          "item1": "Place stones on intersections. Connected stones work as a group.",
+          "item2": "Liberties are adjacent empty points along the grid lines.",
+          "item3": "A group loses its place on the board when its last liberty is filled by an opponent.",
+          "item4": "Build living groups that surround territory, rather than chasing every capture.",
+          "paragraph2": "Next, learn which moves are legal and why ko prevents an immediate repeat in Legal moves and ko."
+        }
+      },
+      "title": "Stones, liberties, territory",
+      "description": "Learn where stones go, how liberties keep them on the board, and how surrounding space builds territory."
+    },
+    "readingLifeAndDeath": {
+      "sections": {
+        "overview": {
+          "title": "Can this group survive?",
+          "paragraph1": "You already know how groups share liberties and how captures work. Now look one step further: can a group keep its liberties even when the opponent surrounds it? Reading means imagining the next moves before playing them.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A black group in the upper left corner is surrounded by white stones. Three adjacent empty points remain inside along the top edge.",
+              "caption": "Black to play. Does being surrounded mean this group must be captured? Keep this question in mind."
+            }
+          },
+          "paragraph2": "By the end, you will recognize simple eyes, explain why two eyes protect a group, and spot a false eye. These small boards show local positions; assume the surrounding white stones are safe and Black cannot escape through them."
+        },
+        "eyes": {
+          "title": "What is an eye?",
+          "paragraph1": "An eye is an enclosed space inside a group. Start with the simplest kind: one empty intersection surrounded by friendly stones. At an edge or corner, the board boundary helps enclose it.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Three connected black stones enclose the marked upper left corner intersection. Empty intersections also remain outside the group.",
+              "caption": "The marked corner point is an eye. Empty points beside the outside of the group are outside liberties."
+            }
+          },
+          "paragraph2": "An eye is still a liberty. Its value comes from being enclosed, but enclosure alone does not make a group safe. We also need to check whether the stones around it can be captured."
+        },
+        "oneEye": {
+          "title": "Why one eye is not enough",
+          "paragraph1": "Once all outside liberties are filled, a group with just one single-point eye has only one liberty left. The opponent can play inside that eye and capture the whole group.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Three connected black stones in the upper left corner are surrounded by White. Their only liberty is the marked corner eye.",
+              "caption": "Before: White to play. The corner eye is Black’s last liberty."
+            },
+            "diagram2": {
+              "label": "White has played in the upper left corner. All three black stones have been removed, leaving new liberties beside the white stone.",
+              "caption": "After: White fills the eye and captures all three black stones."
+            }
+          },
+          "paragraph2": "These examples use the usual rule that self-capture is forbidden. First remove any enemy stones captured by a move, then check the liberties of the stone just played. White’s move is legal because removing Black creates new liberties.",
+          "paragraph3": "One eye does not guarantee safety. That does not mean every group with one eye is dead: it might still make another eye or connect to safety."
+        },
+        "twoEyes": {
+          "title": "Why two eyes keep a group alive",
+          "diagrams": {
+            "diagram1": {
+              "label": "One connected black group has two separate marked eyes on the top edge, at columns one and three. White occupies every outside liberty.",
+              "caption": "White to play. Both marked points are genuine eyes of the same connected black group."
+            }
+          },
+          "paragraph1": "Imagine White playing in either marked eye. Black would still have the other eye as a liberty, so no black stones would be captured. White’s new stone would have no liberties: that move is illegal.",
+          "paragraph2": "White cannot fill both eyes in one turn. With two separate, genuine eyes, this group is alive without needing help from other groups. Black does not need to add a stone inside either eye.",
+          "paragraph3": "Count separate spaces, not empty points. Two adjacent empty points inside one enclosure are one eye space, not two eyes."
+        },
+        "groupStatus": {
+          "title": "Alive, dead, or still undecided?",
+          "item1": "<strong>Alive:</strong> the group can survive correct attack. The two-eye group above is already safe, even if White moves first.",
+          "item2": "<strong>Dead:</strong> the group cannot avoid eventual capture, even with best defense. The surrounded one-eye example cannot escape or make another eye. Dead stones may still be on the board.",
+          "item3": "<strong>Undecided:</strong> the next move matters. A group may be able to live if it gets the chance to make its second eye.",
+          "diagrams": {
+            "diagram1": {
+              "label": "The opening position, with three empty points along the top edge inside Black’s boundary. The middle point, column two, is marked.",
+              "caption": "Black to play: place a stone at the marked middle point. Three empty points are currently one space."
+            },
+            "diagram2": {
+              "label": "Black has played at column two on the top edge, dividing the enclosed space into two separate marked eyes.",
+              "caption": "After Black’s move: two eyes. The new stone connects to the black row below."
+            }
+          },
+          "paragraph1": "This answers the opening question: Black can live by dividing the space. If White plays at that middle point first, Black cannot make two eyes here and will eventually be captured. Before calling a group dead, ask what it can still do and whose turn it is."
+        },
+        "falseEyes": {
+          "title": "False eyes: check the surrounding stones",
+          "paragraph1": "A false eye looks enclosed by friendly stones, but part of its boundary is vulnerable. The stones beside that space may not belong to the same connected group. An opponent can sometimes play there and capture just one part of the boundary.",
+          "diagrams": {
+            "diagram1": {
+              "label": "The marked upper left corner touches two separate black groups. The lone black stone immediately to its right has only that corner as a liberty.",
+              "caption": "Before: White to play. The black stone just right of the marked corner is not connected to the black stones below."
+            },
+            "diagram2": {
+              "label": "White has played in the upper left corner and captured only the black stone immediately to its right. The lower black group remains.",
+              "caption": "After: White captures the lone stone. The apparent eye opens up; the lower black stones remain on the board."
+            }
+          },
+          "paragraph2": "White’s move gains a liberty by capturing that lone stone. The other black stones do not protect it just because they touch the same empty point. When counting eyes, check whether their surrounding stones are secure. This example identifies a false eye; it does not decide the eventual fate of the lower group."
+        },
+        "summary": {
+          "title": "Summary",
+          "item1": "Identify the connected group you are trying to save.",
+          "item2": "Look for separate enclosed spaces, rather than counting empty points.",
+          "item3": "Check the boundary stones: an apparent eye may be false.",
+          "item4": "Two genuine eyes make the group independently alive.",
+          "item5": "With fewer eyes, ask whether a move can make another eye or connect to safety.",
+          "paragraph1": "Next, use what you know about living and dead groups to finish a game and count its result. Seki, where groups survive through mutual dependence, capturing races, scoring disputes, and advanced life-and-death puzzles can come later. For now, practice explaining why each eye is safe."
+        }
+      },
+      "title": "Reading life and death",
+      "description": "Recognize eyes, understand why two eyes protect a group, and spot a simple false eye."
+    },
+    "legalMovesAndKo": {
+      "koDiagram": {
+        "label": "Black has just captured at column three, row two. The removed white stone leaves an empty point at column three, row three, marked with a dot.",
+        "caption": "White to play. The marked point would recapture Black’s new stone and restore the previous position."
+      },
+      "sections": {
+        "overview": {
+          "title": "A legal move comes first",
+          "paragraph1": "Go players take turns placing one stone on an empty intersection, or passing. Stones stay where they are placed unless captured. You have already practiced liberties and capturing; now learn the checks that make a move legal.",
+          "paragraph2": "By the end, you will distinguish an empty point from a legal move, explain the capture exception to self-capture, and recognize an immediate ko recapture. Rows run from top to bottom and columns from left to right in these diagrams.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A black stone occupies the center of a five by five board. An empty point to its right is marked.",
+              "caption": "White can play on the marked empty point, but cannot replace the black center stone."
+            }
+          }
+        },
+        "emptyPoints": {
+          "title": "Where you may play",
+          "paragraph1": "Choose an intersection, including an edge or corner, that is not already occupied. You do not move a stone that is on the board, stack stones, or place a stone inside a square.",
+          "paragraph2": "An empty intersection is only the first check. After resolving captures, your newly placed stone must belong to a group with at least one liberty. These lessons use the usual no-self-capture rule.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A center black stone with empty corner and edge intersections marked.",
+              "caption": "Both marked points are legal for White here. Each leaves the new stone with liberties."
+            }
+          }
+        },
+        "selfCapture": {
+          "title": "Capture before checking self-capture",
+          "paragraph1": "Imagine placing your stone, then remove any adjacent opposing groups whose last liberty has been filled. Only then check the liberties of your own group. If none remain, the move is self-capture and is forbidden under the rules used here.",
+          "paragraph2": "An empty point surrounded by White is not automatically illegal for Black: a move there may capture White and open liberties. Compare the unsuccessful entry with the capturing move below.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Four separate white stones surround the marked empty center. Each white stone has other liberties.",
+              "caption": "Black cannot play at the dot. It would capture nothing and leave Black without a liberty."
+            },
+            "diagram2": {
+              "label": "Three connected black corner stones have only the marked upper left intersection as a liberty.",
+              "caption": "White can play at this dot: all three black stones will be captured, making room for White to breathe."
+            },
+            "diagram3": {
+              "label": "White occupies the corner after removing the three black stones.",
+              "caption": "After the legal capture, White has two adjacent empty liberties."
+            }
+          }
+        },
+        "ko": {
+          "title": "Why ko prevents an immediate repeat",
+          "paragraph1": "Ko is a shape where one stone can capture another, and an immediate recapture would recreate the position from just before that capture. Without a restriction, the players could repeat the same two moves forever.",
+          "paragraph2": "The simple ko rule forbids that immediate recapture. The point is empty and the recapture would gain a liberty, but repetition still makes it illegal now. Not every capture of one stone is a ko: the whole board position must repeat.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A white stone at column three, row three has one liberty above it, marked at column three, row two.",
+              "caption": "Before: Black can capture the central white stone by playing at the marked point."
+            }
+          }
+        },
+        "interveningMoves": {
+          "title": "Play elsewhere and read the response",
+          "paragraph1": "White must choose another legal move or pass instead of immediately recapturing. If White plays elsewhere and Black replies elsewhere, White may return to the ko under the simple ko rule, provided the recapture is otherwise legal.",
+          "paragraph2": "Black does not have to reply elsewhere. Black may instead fill the ko point and end the local exchange. The bottom-corner moves below simply demonstrate the timing; they are not a recommendation about which ko threats to play.",
+          "paragraph3": "Some rulesets also restrict repetitions across longer sequences, called superko. Detailed repetition rules and ko-fighting strategy belong in a later lesson.",
+          "diagrams": {
+            "diagram1": {
+              "label": "The ko after White plays the bottom left corner and Black replies in the bottom right corner.",
+              "caption": "After Black’s capture: White plays bottom left, then Black plays bottom right. White can now reconsider the ko."
+            },
+            "diagram2": {
+              "label": "White recaptures at column three, row three. Black’s stone above is removed; the two bottom-corner stones remain.",
+              "caption": "White recaptures. The intervening stones remain, and Black cannot immediately recapture in return."
+            }
+          }
+        },
+        "summary": {
+          "title": "Three checks before playing",
+          "paragraph1": "Is the point empty? After removing captured enemy stones, will your group have a liberty? Would the move break a repetition rule? If a move fails any of these checks, choose another move or pass.",
+          "paragraph2": "You can now recognize legal local moves. Next, practice connecting your stones, spotting cuts, and responding to atari."
+        }
+      },
+      "quickCheck": {
+        "question": "White to play after Black’s ko capture. Click a legal empty intersection for White’s next move.",
+        "diagram": {
+          "caption": "The dot marks the immediate recapture point at column 3, row 3. Try it to see why it is forbidden, then find another legal move."
+        },
+        "successFeedback": "Correct! White’s stone has been placed on a legal empty point without immediately repeating the position. Black plays next; White cannot take another turn right away."
+      },
+      "title": "Legal moves and ko",
+      "description": "Know where you may play, distinguish capture from self-capture, and understand why ko prevents an immediate repeat."
+    },
+    "finishingAndScoring": {
+      "settledDiagram": {
+        "label": "A settled five by five board. Black has eleven stones on the left and two enclosed points at column one, rows one and three. White has ten stones on the right and two enclosed points at column five, rows one and three.",
+        "caption": "Both groups have two eyes. All boundaries are closed, and there are no dead stones left to remove."
+      },
+      "sections": {
+        "overview": {
+          "title": "From playing moves to counting points",
+          "paragraph1": "Go is about controlling more of the board than your opponent. A game does not end at the first capture or when the board is full. You stop when both players are ready to count.",
+          "paragraph2": "This lesson uses Chinese-style area counting: your stones on the board plus the empty points they enclose. We use a tiny settled board so you can check every point. Other rulesets count differently; agree on rules and komi before a real game."
+        },
+        "keepPlaying": {
+          "title": "When to keep playing",
+          "paragraph1": "Before passing, look for unfinished boundaries, groups that still need protection, and moves that gain points or reduce the opponent’s area. A gap between Black and White is not automatically territory for either side.",
+          "paragraph2": "An empty point touching both colors is neutral unless further play changes the boundary. Under area counting, safely occupying a neutral point adds a stone to your score, so useful neutral moves should usually be played before passing.",
+          "diagrams": {
+            "diagram1": {
+              "label": "The settled example with a black stone missing at column three, row two. That empty point touches both black and white stones.",
+              "caption": "Black to play: the marked gap is neutral now. Black can legally fill it and gain one point of area."
+            },
+            "diagram2": {
+              "caption": "After Black fills the gap, Black has eleven stones and two enclosed empty points."
+            }
+          }
+        },
+        "passing": {
+          "title": "Passing and agreeing what remains",
+          "paragraph1": "Passing uses your turn without placing a stone. Two consecutive passes signal that the players are ready to finish. First agree which groups are alive and which are dead. Remove agreed dead stones before counting.",
+          "paragraph2": "A dead group cannot avoid eventual capture with correct defense. Do not remove a group merely because it looks surrounded. If you disagree, continue playing according to your agreed rules and resolve its status. The previous lesson on life and death helps with this decision.",
+          "paragraph3": "The lone white stone in the upper-left corner below is dead: it cannot escape, and Black has another eye. Both players agree to remove it. The large white group on the right and bottom is alive and stays.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A lone white stone at the upper left has one liberty below. It is enclosed by a black group with another eye at column three, row one.",
+              "caption": "After both players pass: the lone corner stone is agreed dead. Its remaining liberty is marked."
+            },
+            "diagram2": {
+              "label": "The agreed dead white corner stone has been removed. Its former point and the point below now belong to Black’s enclosed space.",
+              "caption": "Remove only the agreed dead stone. Its former intersection becomes part of Black’s area."
+            }
+          }
+        },
+        "areaCounting": {
+          "title": "Count stones and enclosed empty points",
+          "paragraph1": "For area counting, each of your stones remaining on the board is one point. Each empty intersection enclosed only by your living stones and the board edge is also one point. Add these two counts.",
+          "paragraph2": "In this settled example, Black has 11 stones and 2 enclosed empty points: 13 points of area. White has 10 stones and 2 enclosed empty points: 12 points. Together they account for all 25 intersections.",
+          "paragraph3": "Captured stones kept beside the board are not added separately in this method. Empty neutral points count for neither player while empty. Japanese-style territory counting uses a different formula; do not mix that formula with area counting.",
+          "diagrams": {
+            "diagram1": {
+              "caption": "Black: 11 stones + the 2 marked empty points = 13."
+            },
+            "diagram2": {
+              "caption": "White: 10 stones + the 2 marked empty points = 12, before komi."
+            }
+          }
+        },
+        "komi": {
+          "title": "Include the agreed komi",
+          "paragraph1": "Black moves first. Komi is an agreed number of points added to White’s score to compensate for that advantage. It is part of the final calculation, not a stone placed on the board.",
+          "paragraph2": "For an arithmetic example, suppose the agreed komi is 7.5. Black’s score stays 13; White’s becomes 12 + 7.5 = 19.5. White wins by 6.5 points. A half-point allowance avoids a tied total.",
+          "paragraph3": "The appropriate komi depends on the rules and game arrangement. This tiny board demonstrates the calculation; it does not prescribe a handicap or komi for every board size.",
+          "diagrams": {
+            "diagram1": {
+              "caption": "With the stated 7.5 komi: Black 13, White 19.5. The stones do not change when komi is added."
+            }
+          }
+        },
+        "summary": {
+          "title": "Finish, agree, count",
+          "paragraph1": "Check for useful moves before passing. After consecutive passes, agree on living and dead groups. Remove agreed dead stones, count each player’s area, and add the agreed komi to White.",
+          "paragraph2": "You now have the essentials for completing a small game. Next, explore opening strategy: using corners, territory, and influence to give your early moves a purpose."
+        }
+      },
+      "quickCheck": {
+        "question": "Count Black’s area by selecting every black stone and every empty intersection enclosed by Black.",
+        "diagram": {
+          "caption": "Select each point of Black’s area once. Count stones as well as enclosed empty points; leave White’s area unselected."
+        },
+        "successFeedback": "All 13 points found! Black has 11 stones and 2 enclosed empty points: 11 + 2 = 13. These markers count area; they do not place new stones."
+      },
+      "title": "Finishing and scoring a game",
+      "description": "Learn when to pass, agree which stones remain, and count a result using Chinese-style area scoring."
+    },
+    "connectingAndCutting": {
+      "atariDiagram": {
+        "label": "A black stone at column three, row three is surrounded by White above, left, and right. Its last liberty is below, between it and three black stones along the bottom edge.",
+        "caption": "Black to play. The center stone is in atari. The marked point connects it to the black stones below."
+      },
+      "connectedDiagram": {
+        "label": "Black has played at column three, row four, joining the center stone to the three black stones on the bottom edge.",
+        "caption": "After connecting, all five black stones share four liberties. White cannot capture them in one move."
+      },
+      "sections": {
+        "overview": {
+          "title": "Help your stones work together",
+          "paragraph1": "A stone in danger may be able to join a stronger group. A safe-looking pair may instead be separated by an enemy move. Connections and cuts help you understand both possibilities.",
+          "paragraph2": "This lesson builds on liberties, capturing, and legal moves. You will identify a cutting point, compare ways to answer atari, and look at one reply before deciding that a move works. Saving stones here means escaping the immediate threat; it does not automatically mean making two eyes."
+        },
+        "connections": {
+          "title": "Solid connections and diagonal neighbors",
+          "paragraph1": "Stones of the same color touching along a grid line form a connected group and share liberties. The opponent cannot place a stone between two stones that already touch.",
+          "paragraph2": "Diagonal neighbors do not share a direct connection. They may be able to connect on the next move, but nearby enemy stones can affect whether that connection is safe. Trace the grid lines instead of judging by appearance.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Two black stones touch horizontally in the center.",
+              "caption": "A solid connection: these stones already share their liberties."
+            },
+            "diagram2": {
+              "label": "Two diagonal black stones with the two intersections that could join them marked.",
+              "caption": "Separate groups for now. Either marked move would join them on this otherwise empty board."
+            }
+          }
+        },
+        "cuts": {
+          "title": "Recognize a cutting point",
+          "paragraph1": "A cut occupies a point that your opponent would like to use to connect. It can force nearby stones to fight as separate groups. A cut is useful only if the cutting stones can survive or achieve something worthwhile.",
+          "paragraph2": "In this example, Black could join the two stones by filling the gap. White can instead occupy the gap and connect to the white stone above. Black must now look for another way to connect or support each side.",
+          "diagrams": {
+            "diagram1": {
+              "label": "Two black stones on row three are separated by one empty intersection. A white stone sits just above the gap.",
+              "caption": "White to play. The marked gap is Black’s direct connecting point."
+            },
+            "diagram2": {
+              "label": "White has filled the gap between the two black stones and connected upward to another white stone.",
+              "caption": "White cuts. The black stones remain separate; they have not been captured."
+            }
+          }
+        },
+        "answerAtari": {
+          "title": "Three ways to answer atari",
+          "paragraph1": "Atari means a group has just one liberty. Before moving, consider extending into that liberty, connecting to friendly stones, or capturing an adjacent attacker to create new liberties.",
+          "paragraph2": "A move can do more than one of these things. Below, Black extends downward and connects to support at the same time. In the second example, Black can instead capture a white attacker on the left.",
+          "paragraph3": "Recount the liberties after the move. Do not assume that adding one more stone always saves the group.",
+          "diagrams": {
+            "diagram3": {
+              "label": "Black’s center stone is in atari. The white attacker immediately to its left also has one liberty, at the marked left edge point.",
+              "caption": "Another position, Black to play: the left-hand white attacker can be captured at the dot."
+            },
+            "diagram4": {
+              "label": "Black has played at the left edge and removed the adjacent white stone. The center black stone now has liberties below and to its left.",
+              "caption": "After the capture, the center black stone has two liberties. The threat of immediate capture is gone."
+            }
+          }
+        },
+        "readAReply": {
+          "title": "Read the opponent’s reply",
+          "paragraph1": "Reading starts with a short question: if I play here, what can the opponent do next? A group may gain a stone but still have only one liberty. That move delays capture without solving the problem.",
+          "paragraph2": "Compare the trapped corner stones with the connected group from before. In the corner, extending leads straight to another atari. In the connected example, White can fill one liberty but several remain.",
+          "diagrams": {
+            "diagram1": {
+              "label": "A black stone at the top left corner has its only liberty directly below. White blocks the route to the right and farther down the edge.",
+              "caption": "Black to play. Extending down at the dot looks like an escape."
+            },
+            "diagram2": {
+              "label": "Two black stones on the left edge have only one liberty left, at column one, row three.",
+              "caption": "After Black extends, White plays at the marked last liberty and captures both stones."
+            },
+            "diagram3": {
+              "label": "White has played at column one, row three. The two black stones above have been removed.",
+              "caption": "After White’s reply: the extension only delayed the capture."
+            },
+            "diagram4": {
+              "label": "The five connected black stones remain after White fills the liberty at column two, row four.",
+              "caption": "By contrast, the connected group still has three liberties after this White reply."
+            }
+          }
+        },
+        "summary": {
+          "title": "Connect, count, then read",
+          "paragraph1": "Identify which stones are actually connected. Look for gaps an opponent can cut. When a group is in atari, compare extending, connecting, and capturing; then count the liberties after the opponent’s likely reply.",
+          "paragraph2": "Not every threatened stone is worth saving. For now, practice recognizing a move that works locally. Next, explore eyes and life and death to understand when a group can survive beyond the immediate threat."
+        }
+      },
+      "quickCheck": {
+        "question": "Black to play. Click the move that connects the threatened center stone to support and prevents its capture on White’s next turn.",
+        "diagram": {
+          "caption": "Find the center stone’s last liberty. Rows count from top to bottom and columns from left to right."
+        },
+        "incorrectFeedback": "That move leaves the center stone in atari. White can still capture it at column 3, row 4. Try connecting through its last liberty.",
+        "hints": {
+          "hint1": {
+            "feedback": "Diagonal contact does not connect the center stone. White can still fill its last liberty below. Try a connection along the grid lines."
+          }
+        },
+        "successFeedback": "Correct! Black’s new stone joins all five black stones into one group with four liberties. White cannot capture that group in a single reply."
+      },
+      "title": "Connecting, cutting, and saving stones",
+      "description": "Keep stones working together, recognize cutting points, and read a reply before trying to save a group."
+    },
+    "josekiAndModernOpenings": {
+      "lowDiagram": {
+        "label": "A nine by nine board with a black stone at column three, row three, near the upper-left corner.",
+        "caption": "The 3–3 point is three lines from each nearby edge. It emphasizes the corner, but one stone has not enclosed territory yet."
+      },
+      "starDiagram": {
+        "label": "A nine by nine board with a black stone at column four, row four, near the upper-left corner.",
+        "caption": "The 4–4 point sits farther from the edges. It reaches outward, while leaving room for an opponent to enter the corner."
+      },
+      "sections": {
+        "overview": {
+          "title": "Give your opening moves a purpose",
+          "paragraph1": "The opening is the early part of a game, when the board is mostly empty. You are choosing where to build useful positions before close fighting begins. Black plays first, and each move still follows the rules from the earlier lessons.",
+          "paragraph2": "You will compare corner territory with outward influence, meet the idea of joseki, and ask how nearby stones change a local choice. These nine-by-nine boards keep the examples readable. Full-board opening priorities also depend on board size."
+        },
+        "cornersSidesCenter": {
+          "title": "Corners, sides, and center",
+          "paragraph1": "The edges help you enclose space. A corner provides two boundaries, a side provides one, and the center provides none. This makes corners attractive early places to build territory.",
+          "paragraph2": "“Corners, then sides, then center” is a useful starting guide, not a rule about legal moves. A threatened group may need help immediately. On a small board, the corners and center also interact sooner.",
+          "paragraph3": "Names such as 3–3 and 4–4 count grid lines from the two nearby edges. The marked points below show one corner choice, one side choice, and the center; they are possible moves, not territory already earned.",
+          "diagrams": {
+            "diagram1": {
+              "label": "An empty nine by nine board with points marked at column three row three, column five row three, and column five row five.",
+              "caption": "From upper left toward the middle: a corner point, a side point, and the center. Compare how many edges help each area."
+            }
+          }
+        },
+        "territoryInfluence": {
+          "title": "Territory and influence",
+          "paragraph1": "Territory is empty space securely enclosed by living stones. Influence is the useful effect of strong stones on nearby fighting or future development. Influence has potential value, but it is not a set of points you can count as territory now.",
+          "paragraph2": "A lower corner move such as 3–3 emphasizes space near the edges. A higher move such as 4–4 leaves more room underneath but can help your stones develop outward. Neither is always better: they serve different purposes."
+        },
+        "joseki": {
+          "title": "Understand a sequence before memorizing it",
+          "paragraph1": "A joseki is a studied local sequence that gives both sides a reasonable result in an appropriate setting. It is not a special rule, a forced response, or a guarantee that the whole board favors you.",
+          "paragraph2": "Here is the beginning of a 3–3 invasion under a 4–4 stone. White enters near the corner. Black blocks one direction. White extends along the other direction instead of running straight into the block. Read the diagrams in order.",
+          "paragraph3": "This is an introduction to the exchange, not a completed joseki or a proof that White is already alive. Later moves must settle liberties, connections, and eye space. Study those reasons before adding longer variations.",
+          "diagrams": {
+            "diagram1": {
+              "caption": "Starting position: Black’s 4–4 stone approaches the corner from the outside."
+            },
+            "diagram2": {
+              "label": "White has played at the 3–3 point diagonally toward the corner from Black’s 4–4 stone.",
+              "caption": "1. White plays 3–3, aiming for a foothold near the two edges."
+            },
+            "diagram3": {
+              "label": "Black adds a stone at column four, row three, directly to the right of White’s invading stone.",
+              "caption": "2. Black blocks at column 4, row 3, connecting to the original black stone."
+            },
+            "diagram4": {
+              "label": "White extends to column three, row four, connecting to the invading stone and running alongside Black.",
+              "caption": "3. White extends at column 3, row 4. White develops along the other side of the corner."
+            }
+          }
+        },
+        "wholeBoard": {
+          "title": "Look beyond the corner",
+          "paragraph1": "A local exchange can give one player corner space and the other player useful outside stones. Before choosing a direction, look at where those outside stones would help your existing groups or face open space.",
+          "paragraph2": "The corner stones below are identical, but the extra black stone is in a different place. The surrounding position changes what Black hopes to build next. Do not copy a sequence without considering that difference.",
+          "paragraph3": "Opening study continues to evolve. For a beginner, the useful habit is stable: compare the purpose of a move, the opponent’s reply, and the resulting position. Detailed modern variations and engine evaluations can wait.",
+          "diagrams": {
+            "diagram1": {
+              "label": "The invasion sequence with an additional black stone at column seven, row four, to the right of the local black stones.",
+              "caption": "Support on the right: consider whether the outside black stones can help develop that side."
+            },
+            "diagram2": {
+              "label": "The same invasion sequence with an additional black stone at column four, row seven, below the corner.",
+              "caption": "Support below: the same corner sequence now sits beside a different development plan."
+            }
+          }
+        },
+        "summary": {
+          "title": "Choose a purpose, then read a reply",
+          "paragraph1": "Use the edges to build efficiently. Distinguish secure territory from influence. Treat joseki as examples of cooperation and tradeoffs between moves, and always check the surrounding position.",
+          "paragraph2": "You now have a first path through placement, life and death, legal moves, scoring, tactics, and opening ideas. Practice on a small board and explain one decision after each game. Long joseki branches, advanced life-and-death puzzles, and complex ko fights can come later.",
+          "diagrams": {
+            "diagram1": {
+              "caption": "Before your next move, ask: am I seeking corner space, outside strength, or help for a threatened group?"
+            }
+          }
+        }
+      },
+      "quickCheck": {
+        "question": "Your goal is to emphasize corner space. Click the marked starting point that fits this goal more directly: 3–3 or 4–4.",
+        "diagram": {
+          "label": "An empty nine by nine board with the upper-left 3–3 and 4–4 points marked. Neither point has been selected yet.",
+          "caption": "Compare 3–3, nearer the corner, with 4–4, farther toward the center. Click one of these two marked points."
+        },
+        "incorrectFeedback": "That is another possible opening point. For this comparison, choose one of the two marked points: 3–3 or 4–4.",
+        "hints": {
+          "hint1": {
+            "feedback": "4–4 is a legal opening move, but it reaches farther outward and leaves more room underneath. For the stated corner-space goal, try the lower marked point."
+          }
+        },
+        "successFeedback": "Correct! Black has played 3–3, emphasizing the corner. Later moves and a living group are still needed to turn potential space into secure territory."
+      },
+      "title": "Joseki and modern openings",
+      "description": "Explore corners, territory, and influence. Understand the purpose of a short corner sequence before memorizing moves."
+    },
+    "exercises": {
+      "liberties": {
+        "correct": "Correct — that intersection is a liberty.",
+        "incorrect": "Not quite. A liberty must be directly beside the stone along a grid line.",
+        "reset": "Exercise reset. Find all four liberties.",
+        "question": "Which intersections are liberties of the black stone?",
+        "success": "All four liberties found! Each is an empty intersection directly adjacent to the black stone.",
+        "label": "Select intersections on a five by five Go board. One black stone is in the center. Rows are numbered from top to bottom and columns from left to right.",
+        "caption": "Select the four liberties. Use Tab to focus an intersection and Enter or Space to select it.",
+        "progress": "Liberties found: {count} / 4"
+      },
+      "eyes": {
+        "alreadyFound": "You already found that eye. Look for the other enclosed space.",
+        "occupied": "That is a stone. Look for an empty intersection enclosed by Black.",
+        "correct": "Correct. This enclosed empty point is one of Black’s eyes. Find the other eye.",
+        "outside": "That point is outside Black’s group. An outside empty point is not an eye; look inside the black boundary.",
+        "reset": "Exercise reset. Find the two eyes that keep Black alive.",
+        "question": "Select the two eyes that keep this black group alive.",
+        "success": "Both eyes found! White cannot capture this group by playing in either eye, because the other remains a liberty. Black is alive.",
+        "label": "Select the eyes on a five by five Go board. A connected black group lies in the upper left corner, with White surrounding it. Rows run from top to bottom and columns from left to right.",
+        "caption": "Select two enclosed empty intersections. Use Tab to focus a point and Enter or Space to select it.",
+        "progress": "Eyes found: {count} / {total}"
+      },
+      "board": {
+        "alreadyCounted": "You already counted that intersection. Each point counts once.",
+        "correctStone": "Correct. This black stone contributes one point of area.",
+        "correctTerritory": "Correct. This enclosed empty intersection contributes one point of area.",
+        "opponentStone": "That is a white stone. Count Black’s stones and Black’s enclosed empty points.",
+        "opponentTerritory": "That empty point belongs to White’s enclosed space, not Black’s area.",
+        "occupied": "That intersection is occupied. Choose an empty point; stones already on the board cannot be replaced.",
+        "ko": "That immediate recapture is illegal: it would restore the position from before Black’s capture. White must play elsewhere or pass first.",
+        "selfCapture": "That move is self-capture: after resolving captures, your new group would have no liberties. Try another empty point.",
+        "chooseEmpty": "Choose an empty intersection on the board.",
+        "reset": "Exercise reset. Try again on the board.",
+        "movePlayed": "{color, select, white {White} other {Black}} has played the selected move. {feedback}",
+        "caption": "{caption} Use Tab to focus an intersection and Enter or Space to select it.",
+        "complete": "Exercise complete. Reset to try again.",
+        "areaProgress": "Area counted: {count} / {total}",
+        "moveProgress": "Moves found: {count} / 1"
+      }
+    },
+    "diagram": {
+      "intersection": "Column {column}, row {row}, {stone, select, black {black stone} white {white stone} other {empty intersection}}{selected, select, yes {, selected} other {}}"
+    },
+    "labels": {
+      "game": "Go",
+      "metadataTitle": "{title} | Go lessons | Board Games",
+      "lessonNumber": "{game} · Lesson {number}",
+      "progress": "Lesson {current} of {total}",
+      "readingTime": "{minutes} min read",
+      "outline": "Lesson outline",
+      "inThisLesson": "In this lesson",
+      "navigation": "Lesson navigation",
+      "previous": "Previous lesson",
+      "next": "Next lesson",
+      "backToLearn": "Back to Learn",
+      "comingSoon": "Coming soon",
+      "quickCheck": "Quick Check"
+    }
+  }
+}

@@ -6,8 +6,10 @@ import type { LessonOutlineItem } from '../types';
 
 export function LessonOutline({
   items,
+  labels,
 }: {
   items: readonly LessonOutlineItem[];
+  labels: { title: string; accessibility: string };
 }) {
   const [activeId, setActiveId] = useState<string | undefined>(items[0]?.id);
   const activeIndex = items.findIndex((item) => item.id === activeId);
@@ -58,11 +60,11 @@ export function LessonOutline({
 
   return (
     <nav
-      aria-label="Lesson outline"
+      aria-label={labels.accessibility}
       className="bg-card rounded-xl border p-4 lg:sticky lg:top-8"
     >
       <p className="text-xs font-medium tracking-widest uppercase">
-        In this lesson
+        {labels.title}
       </p>
       <div
         aria-hidden="true"

@@ -1,61 +1,14 @@
+import { GO_LESSON_DEFINITIONS } from '@/features/games/go/data/lessons';
+import goMessages from '@/features/games/go/i18n/en.json';
 import type { LessonGame, LessonSummary } from '../types';
 
-export const GO_LESSONS: readonly LessonSummary[] = [
-  {
-    order: 1,
-    title: 'Stones, liberties, territory',
-    href: '/learn/go/stones-liberties-territory',
-    readingMinutes: 6,
-    description:
-      'Learn where stones go, how liberties keep them on the board, and how surrounding space builds territory.',
-    level: 'beginner',
-  },
-  {
-    order: 2,
-    title: 'Reading life and death',
-    href: '/learn/go/reading-life-and-death',
-    readingMinutes: 8,
-    description:
-      'Recognize eyes, understand why two eyes protect a group, and spot a simple false eye.',
-    level: 'intermediate',
-  },
-  {
-    order: 3,
-    title: 'Legal moves and ko',
-    href: '/learn/go/legal-moves-and-ko',
-    readingMinutes: 6,
-    description:
-      'Know where you may play, distinguish capture from self-capture, and understand why ko prevents an immediate repeat.',
-    level: 'beginner',
-  },
-  {
-    order: 4,
-    title: 'Finishing and scoring a game',
-    href: '/learn/go/finishing-and-scoring',
-    readingMinutes: 7,
-    description:
-      'Learn when to pass, agree which stones remain, and count a result using Chinese-style area scoring.',
-    level: 'beginner',
-  },
-  {
-    order: 5,
-    title: 'Connecting, cutting, and saving stones',
-    href: '/learn/go/connecting-and-cutting',
-    readingMinutes: 7,
-    description:
-      'Keep stones working together, recognize cutting points, and read a reply before trying to save a group.',
-    level: 'intermediate',
-  },
-  {
-    order: 6,
-    title: 'Joseki and modern openings',
-    href: '/learn/go/joseki-and-modern-openings',
-    readingMinutes: 7,
-    description:
-      'Explore corners, territory, and influence. Understand the purpose of a short corner sequence before memorizing moves.',
-    level: 'intermediate',
-  },
-];
+export const GO_LESSONS: readonly LessonSummary[] = GO_LESSON_DEFINITIONS.map(
+  (lesson) => ({
+    ...lesson,
+    title: goMessages.lessons[lesson.id].title,
+    description: goMessages.lessons[lesson.id].description,
+  }),
+);
 
 const XIANGQI_LESSONS: readonly LessonSummary[] = [
   {

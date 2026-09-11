@@ -3,5 +3,19 @@
     "games": "Games",
     "learn": "Learn",
     "journal": "Journal"
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "levels": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "navigation": {
+    "home": "Home"
+  },
+  "exercises": {
+    "reset": "Reset exercise"
   }
 }

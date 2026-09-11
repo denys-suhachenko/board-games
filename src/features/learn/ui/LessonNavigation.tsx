@@ -7,19 +7,27 @@ import type { LessonSummary } from '../types';
 export function LessonNavigation({
   previousLesson,
   nextLesson,
+  labels,
 }: {
   previousLesson?: LessonSummary;
   nextLesson?: LessonSummary;
+  labels: {
+    previous: string;
+    next: string;
+    backToLearn: string;
+    comingSoon: string;
+    accessibility: string;
+  };
 }) {
   return (
     <nav
-      aria-label="Lesson navigation"
+      aria-label={labels.accessibility}
       className="mt-12 flex flex-col items-start justify-between gap-6 border-t pt-8 sm:flex-row sm:items-center"
     >
       {previousLesson?.href ? (
         <div className="flex flex-col items-start gap-2">
           <p className="text-muted-foreground text-xs uppercase">
-            Previous lesson
+            {labels.previous}
           </p>
           <Button asChild variant="link">
             <Link href={previousLesson.href}>
@@ -32,13 +40,15 @@ export function LessonNavigation({
         <Button asChild variant="outline">
           <Link href="/learn">
             <ArrowLeftIcon data-icon="inline-start" />
-            Back to Learn
+            {labels.backToLearn}
           </Link>
         </Button>
       )}
       {nextLesson && (
         <div className="flex flex-col gap-2 sm:items-end">
-          <p className="text-muted-foreground text-xs uppercase">Next lesson</p>
+          <p className="text-muted-foreground text-xs uppercase">
+            {labels.next}
+          </p>
           {nextLesson.href ? (
             <Button asChild variant="link">
               <Link href={nextLesson.href}>
@@ -49,7 +59,7 @@ export function LessonNavigation({
           ) : (
             <>
               <p className="font-medium">{nextLesson.title}</p>
-              <Badge variant="secondary">Coming soon</Badge>
+              <Badge variant="secondary">{labels.comingSoon}</Badge>
             </>
           )}
         </div>

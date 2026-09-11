@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useId, useState } from 'react';
 import { CheckCircle2Icon, RotateCcwIcon } from 'lucide-react';
 import { Button } from '@/shared/ui/button';
@@ -11,6 +13,8 @@ const samePoint = (a: GoLessonPoint, b: GoLessonPoint) =>
   a.x === b.x && a.y === b.y;
 
 export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
+  const t = useTranslations('go.lessons.exercises.board');
+  const common = useTranslations('common.exercises');
   const questionId = useId();
   const [stones, setStones] = useState(exercise.diagram.stones);
   const [found, setFound] = useState<GoLessonPoint[]>([]);
@@ -35,38 +39,24 @@ export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
 
     if (exercise.kind === 'area') {
       if (found.some((item) => samePoint(item, point))) {
-        setFeedback(
-          'You already counted that intersection. Each point counts once.',
-        );
+        setFeedback(t('alreadyCounted'));
       } else if (areaPoints.some((item) => samePoint(item, point))) {
         const nextFound = [...found, point];
         setFound(nextFound);
         setComplete(nextFound.length === areaPoints.length);
-        setFeedback(
-          stone
-            ? 'Correct. This black stone contributes one point of area.'
-            : 'Correct. This enclosed empty intersection contributes one point of area.',
-        );
+        setFeedback(stone ? t('correctStone') : t('correctTerritory'));
       } else {
-        setFeedback(
-          stone
-            ? 'That is a white stone. Count Black’s stones and Black’s enclosed empty points.'
-            : 'That empty point belongs to White’s enclosed space, not Black’s area.',
-        );
+        setFeedback(stone ? t('opponentStone') : t('opponentTerritory'));
       }
       return;
     }
 
     if (stone) {
-      setFeedback(
-        'That intersection is occupied. Choose an empty point; stones already on the board cannot be replaced.',
-      );
+      setFeedback(t('occupied'));
       return;
     }
     if (exercise.kind === 'ko' && samePoint(point, exercise.koPoint)) {
-      setFeedback(
-        'That immediate recapture is illegal: it would restore the position from before Black’s capture. White must play elsewhere or pass first.',
-      );
+      setFeedback(t('ko'));
       return;
     }
     const move = playLessonMove(
@@ -77,9 +67,7 @@ export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
     );
     if (!move.legal) {
       setFeedback(
-        move.reason === 'self-capture'
-          ? 'That move is self-capture: after resolving captures, your new group would have no liberties. Try another empty point.'
-          : 'Choose an empty intersection on the board.',
+        move.reason === 'self-capture' ? t('selfCapture') : t('chooseEmpty'),
       );
       return;
     }
@@ -108,10 +96,15 @@ export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
         {...exercise.diagram}
         label={
           complete && exercise.kind !== 'area'
-            ? `${exercise.kind === 'ko' ? 'White' : 'Black'} has played the selected move. ${exercise.successFeedback}`
+            ? t('movePlayed', {
+                color: exercise.kind === 'ko' ? 'white' : exercise.color,
+                feedback: exercise.successFeedback,
+              })
             : exercise.diagram.label
         }
-        caption={`${complete ? 'Exercise complete. Reset to try again.' : exercise.diagram.caption} Use Tab to focus an intersection and Enter or Space to select it.`}
+        caption={t('caption', {
+          caption: complete ? t('complete') : exercise.diagram.caption,
+        })}
         stones={stones}
         markers={
           complete || exercise.kind === 'area'
@@ -128,8 +121,11 @@ export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
           aria-atomic="true"
         >
           {exercise.kind === 'area'
-            ? `Area counted: ${found.length} / ${areaPoints.length}`
-            : `Moves found: ${complete ? 1 : 0} / 1`}
+            ? t('areaProgress', {
+                count: found.length,
+                total: areaPoints.length,
+              })
+            : t('moveProgress', { count: complete ? 1 : 0 })}
         </p>
         <Button
           type="button"
@@ -139,13 +135,13 @@ export function GoBoardQuickCheck({ exercise }: { exercise: GoQuickCheck }) {
           onClick={() => {
             setStones(exercise.diagram.stones);
             setFound([]);
-            setFeedback('Exercise reset. Try again on the board.');
+            setFeedback(t('reset'));
             setHasSelected(false);
             setComplete(false);
           }}
         >
           <RotateCcwIcon data-icon="inline-start" />
-          Reset exercise
+          {common('reset')}
         </Button>
       </div>
       <div

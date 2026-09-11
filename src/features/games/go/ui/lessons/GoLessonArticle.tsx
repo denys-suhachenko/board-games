@@ -1,14 +1,18 @@
 import { Fragment } from 'react';
+import { useTranslations } from 'next-intl';
 import { GoLessonDiagram } from './GoLessonDiagram';
 import { GoBoardQuickCheck } from './GoBoardQuickCheck';
 import type { GoLessonSection, GoQuickCheck } from './go-lesson-types';
 import { cn } from '@/shared/lib/utils';
 
-export function getGoLessonOutline(sections: readonly GoLessonSection[]) {
+export function getGoLessonOutline(
+  sections: readonly GoLessonSection[],
+  quickCheckTitle: string,
+) {
   return sections.flatMap(({ id, title }) =>
     id === 'summary'
       ? [
-          { id: 'quick-check', title: 'Quick Check' },
+          { id: 'quick-check', title: quickCheckTitle },
           { id, title },
         ]
       : [{ id, title }],
@@ -22,13 +26,14 @@ export function GoLessonArticle({
   sections: readonly GoLessonSection[];
   quickCheck: GoQuickCheck;
 }) {
+  const t = useTranslations('go.lessons.labels');
   return (
     <article className="flex min-w-0 flex-col gap-12 [&_h2]:text-2xl [&_h2]:font-medium [&_h2]:tracking-tight [&_p]:leading-relaxed [&_section]:flex [&_section]:scroll-mt-8 [&_section]:flex-col [&_section]:gap-5">
       {sections.map((section) => (
         <Fragment key={section.id}>
           {section.id === 'summary' && (
             <section id="quick-check" aria-labelledby="quick-check-heading">
-              <h2 id="quick-check-heading">Quick Check</h2>
+              <h2 id="quick-check-heading">{t('quickCheck')}</h2>
               <GoBoardQuickCheck
                 key={quickCheck.question}
                 exercise={quickCheck}

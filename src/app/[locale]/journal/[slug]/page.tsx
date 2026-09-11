@@ -86,8 +86,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
         <div className="text-muted-foreground mt-4 max-w-[80ch] text-xs tracking-wide uppercase">
           A gaming board scratched into a paving stone at the Roman fort of
-          Vindolanda, on Hadrian's Wall. The 8×8 grid is unmistakable. What was
-          played on it is not.
+          Vindolanda, on Hadrian&apos;s Wall. The 8×8 grid is unmistakable. What
+          was played on it is not.
         </div>
       </div>
 
@@ -127,11 +127,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </p>
         <p>
           Varro, in De Lingua Latina, defines a latro as a mercenary soldier and
-          notes the derivation of the game's name. Ovid, in the Ars Amatoria,
-          recommends the game as a courtship skill — and uses the word
-          incitus("without movement," i.e. stalemated) as a synonym for utter
-          defeat. Martial gives us the word tabula for the board, and the bone
-          game-piece — thecalculus — that we now find in every other Roman tomb.
+          notes the derivation of the game&apos;s name. Ovid, in the Ars
+          Amatoria, recommends the game as a courtship skill — and uses the word
+          incitus(&quot;without movement,&quot; i.e. stalemated) as a synonym
+          for utter defeat. Martial gives us the word tabula for the board, and
+          the bone game-piece — thecalculus — that we now find in every other
+          Roman tomb.
         </p>
         <p>
           The most generous source is the seven-century-later commentator
@@ -139,7 +140,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           invented the game from his experience of war. Isidore is writing
           centuries after the empire that played latrunculi has dissolved, but
           he had access to texts now lost. His brief account names the pieces as
-          milites (soldiers) and gives us the word for the game's central
+          milites (soldiers) and gives us the word for the game&apos;s central
           tactical idea: captura, the capture.
         </p>
 
@@ -149,7 +150,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </h2>
         <p>
           Modern attempts at reconstructing latrunculi go back to the 16th
-          century — but the most cited modern version is Ulrich Schädler's,
+          century — but the most cited modern version is Ulrich Schädler&apos;s,
           published in 1994 in the journal Board Game Studies. Schädler proposed
           a complete ruleset by working backwards from three constraints: the
           games had to be playable, the rules had to be consistent with every
@@ -158,12 +159,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </p>
         <p>
           That last constraint is the one that does most of the work. When Ovid
-          writes that a skilled player "loses no piece while his opponent loses
-          many," we can rule out a ruleset where captures happen by chance or by
-          a die. When Martial calls a certain piece vagus — wandering, loose,
-          exposed — we can guess that the game distinguishes between connected
-          and isolated stones. When Isidore reports that the game has a dux, a
-          chief, we can rule out rulesets where every piece is equal.
+          writes that a skilled player &quot;loses no piece while his opponent
+          loses many,&quot; we can rule out a ruleset where captures happen by
+          chance or by a die. When Martial calls a certain piece vagus —
+          wandering, loose, exposed — we can guess that the game distinguishes
+          between connected and isolated stones. When Isidore reports that the
+          game has a dux, a chief, we can rule out rulesets where every piece is
+          equal.
         </p>
         <blockquote>
           Cum medius gemino calculus hoste perit.
@@ -171,18 +173,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </blockquote>
         <p>
           The line from Ovid above —{' '}
-          <em>cum medius gemino calculus hoste perit</em>, roughly "when the
-          middle stone perishes between two enemies" — is the single sentence on
-          which the entire modern reconstruction rests. It tells us that
-          captures happen by flanking, that a single stone is taken at a time,
-          and that the flanking is symmetric: two enemies, one in the middle.
+          <em>cum medius gemino calculus hoste perit</em>, roughly &quot;when
+          the middle stone perishes between two enemies&quot; — is the single
+          sentence on which the entire modern reconstruction rests. It tells us
+          that captures happen by flanking, that a single stone is taken at a
+          time, and that the flanking is symmetric: two enemies, one in the
+          middle.
         </p>
         <h2>
-          <span className="num">03 — What we still don't know</span>
+          <span className="num">03 — What we still don&apos;t know</span>
           Three open questions
         </h2>
         <p>
-          Schädler's reconstruction is the working consensus. It is also
+          Schädler&apos;s reconstruction is the working consensus. It is also
           incomplete. Three large questions remain genuinely unsettled, and the
           literature on each is contradictory enough that a tournament organizer
           running a latrunculi event today still has to choose a side.

@@ -4,7 +4,6 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 
 import { Footer, Navbar } from '@/shared/layout';
-import { ThemeProvider } from '@/shared/providers/ThemeProvider';
 import { routing } from '@/shared/i18n/routing';
 
 import '../globals.css';
@@ -57,11 +56,9 @@ export default async function RootLayout({
     >
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider locale={locale} messages={null}>
-          <ThemeProvider>
-            <Navbar />
-            <main className="flex flex-1 flex-col">{children}</main>
-            <Footer />
-          </ThemeProvider>
+          <Navbar />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

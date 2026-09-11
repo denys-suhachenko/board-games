@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { cn } from '@/shared/lib/utils';
 
 type Point = { x: number; y: number };
@@ -22,6 +23,7 @@ export function GoLessonDiagram({
   selectedPoints = markers,
   onIntersectionClick,
 }: GoLessonDiagramProps) {
+  const t = useTranslations('go.lessons.diagram');
   const cell = 40;
   const padding = 24;
   const end = padding + (size - 1) * cell;
@@ -90,7 +92,12 @@ export function GoLessonDiagram({
               >
                 <button
                   type="button"
-                  aria-label={`Column ${x + 1}, row ${y + 1}${stone ? `, ${stone.color} stone` : ', empty intersection'}${selected ? ', selected' : ''}`}
+                  aria-label={t('intersection', {
+                    column: x + 1,
+                    row: y + 1,
+                    stone: stone?.color ?? 'empty',
+                    selected: selected ? 'yes' : 'no',
+                  })}
                   aria-pressed={selected}
                   onClick={() => onIntersectionClick(x, y)}
                   className={cn(

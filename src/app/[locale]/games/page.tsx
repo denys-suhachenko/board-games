@@ -13,6 +13,7 @@ import {
 } from '@/shared/ui/breadcrumb';
 import { Input } from '@/shared/ui/input';
 import { Select, SelectTrigger, SelectValue } from '@/shared/ui/select';
+import { getTranslations } from 'next-intl/server';
 
 const games = [
   {
@@ -64,7 +65,9 @@ const games = [
   },
 ];
 
-export default function GamesPage() {
+export default async function GamesPage() {
+  const t = await getTranslations('gamesCatalog');
+
   return (
     <Container className="py-10">
       <Breadcrumb className="mb-8">
@@ -83,7 +86,11 @@ export default function GamesPage() {
 
       <header className="mb-12">
         <h1 className="mb-4 text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl">
-          Many boards, <span className="text-primary">one home.</span>
+          {t.rich('header.title', {
+            highlighted: (chunks) => (
+              <span className="text-primary">{chunks}</span>
+            ),
+          })}
         </h1>
       </header>
 

@@ -3,5 +3,19 @@
     "games": "Ігри",
     "learn": "Навчання",
     "journal": "Новини"
+  },
+  "footer": {
+    "copyright": "Всі права захищено."
+  },
+  "levels": {
+    "beginner": "Початковий",
+    "intermediate": "Середній",
+    "advanced": "Просунутий"
+  },
+  "navigation": {
+    "home": "Головна"
+  },
+  "exercises": {
+    "reset": "Скинути вправу"
   }
 }

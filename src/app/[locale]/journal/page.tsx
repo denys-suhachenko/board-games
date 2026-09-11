@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Link } from '@/shared/i18n/navigation';
 
 import { Container } from '@/shared/layout';
@@ -10,17 +9,15 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from '@/shared/ui/breadcrumb';
-import { Card, CardContent, CardHeader } from '@/shared/ui/card';
 
 import { getArticles } from '@/features/journal/api/articles';
 import { ArticleCard } from '@/features/journal/ui/ArticleCard';
 import { ArticlesFilter } from '@/features/journal/ui/ArticlesFilter';
-import { ButtonGroup } from '@/shared/ui/button-group';
-import { Input } from '@/shared/ui/input';
-import { Button } from '@/shared/ui/button';
 import { ArticlesSidebar } from '@/features/journal/ui/ArticlesSidebar';
+import { getTranslations } from 'next-intl/server';
 
 export default async function JournalPage() {
+  const t = await getTranslations('journal');
   const articles = await getArticles();
 
   return (
@@ -41,7 +38,11 @@ export default async function JournalPage() {
 
       <header className="mb-12">
         <h1 className="text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl">
-          Notes on <span className="text-primary">play.</span>
+          {t.rich('header.title', {
+            highlighted: (chunks) => (
+              <span className="text-primary">{chunks}</span>
+            ),
+          })}
         </h1>
       </header>
 
