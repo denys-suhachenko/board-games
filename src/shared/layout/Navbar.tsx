@@ -1,10 +1,11 @@
+import type { ReactNode } from 'react';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/shared/i18n/navigation';
-import { ArrowRightIcon, DicesIcon } from 'lucide-react';
+import { DicesIcon } from 'lucide-react';
 
 import { cn } from '../lib/utils';
 import { Container } from './Container';
 import { LocaleSwitcher } from './LocaleSwitcher';
-import type { ReactNode } from 'react';
 
 type NavbarProps = {
   transparent?: boolean;
@@ -14,19 +15,21 @@ type NavbarProps = {
 const navItems = [
   {
     href: '/games',
-    label: 'Games',
+    labelKey: 'games',
   },
   {
     href: '/learn',
-    label: 'Learn',
+    labelKey: 'learn',
   },
   {
     href: '/journal',
-    label: 'Journal',
+    labelKey: 'journal',
   },
-];
+] as const;
 
-export function Navbar({ transparent, actions }: NavbarProps) {
+export async function Navbar({ transparent, actions }: NavbarProps) {
+  const t = await getTranslations('common.navbar');
+
   return (
     <header
       className={cn(
@@ -47,13 +50,13 @@ export function Navbar({ transparent, actions }: NavbarProps) {
         <nav className="flex items-center gap-6">
           {navItems.map((link) => (
             <Link
-              key={link.label}
+              key={link.labelKey}
               href={link.href}
               className={cn(
                 'text-muted-foreground hover:text-foreground text-sm font-medium transition-colors',
               )}
             >
-              {link.label}
+              {t(link.labelKey)}
             </Link>
           ))}
         </nav>
