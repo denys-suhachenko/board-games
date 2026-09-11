@@ -53,9 +53,9 @@ export default function GoFirstLessonPage() {
         lesson={lesson}
         totalLessons={GO_LESSONS.length}
       />
-      <div className="grid items-start gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12">
+      <div className="grid items-start gap-x-6 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
         <LessonOutline items={stonesLibertiesTerritoryOutline} />
-        <div className="max-w-3xl min-w-0">
+        <div className="min-w-0">
           <StonesLibertiesTerritoryLesson />
           <LessonNavigation nextLesson={GO_LESSONS[1]} />
         </div>

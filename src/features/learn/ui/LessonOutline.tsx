@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { cn } from '@/shared/lib/utils';
 import type { LessonOutlineItem } from '../types';
 
@@ -6,6 +9,53 @@ export function LessonOutline({
 }: {
   items: readonly LessonOutlineItem[];
 }) {
+  const [activeId, setActiveId] = useState(items[0]?.id);
+  const activeIndex = items.findIndex((item) => item.id === activeId);
+
+  useEffect(() => {
+    let frame = 0;
+
+    function updateActiveSection() {
+      frame = 0;
+      // Follow the last section to cross the upper reading area.
+      const readingLine = Math.min(160, window.innerHeight * 0.25);
+      let currentId = items[0]?.id;
+
+      for (const item of items) {
+        const section = document.getElementById(item.id);
+        if (section && section.getBoundingClientRect().top <= readingLine) {
+          currentId = item.id;
+        }
+      }
+
+      // Short final sections may never reach the reading line.
+      if (
+        window.scrollY > 0 &&
+        window.scrollY + window.innerHeight >=
+          document.documentElement.scrollHeight - 2
+      ) {
+        currentId = items.at(-1)?.id;
+      }
+      setActiveId(currentId);
+    }
+
+    function scheduleUpdate() {
+      if (!frame) frame = window.requestAnimationFrame(updateActiveSection);
+    }
+
+    scheduleUpdate();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.addEventListener('hashchange', scheduleUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.removeEventListener('hashchange', scheduleUpdate);
+    };
+  }, [items]);
+
   return (
     <nav
       aria-label="Lesson outline"
@@ -22,8 +72,8 @@ export function LessonOutline({
           <span
             key={item.id}
             className={cn(
-              'flex-1 rounded-full',
-              index === 0 ? 'bg-primary' : 'bg-border',
+              'flex-1 rounded-full transition-colors motion-reduce:transition-none',
+              index <= activeIndex ? 'bg-primary' : 'bg-border',
             )}
           />
         ))}
@@ -33,7 +83,13 @@ export function LessonOutline({
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="text-muted-foreground hover:bg-muted hover:text-foreground flex items-center gap-3 rounded-md border-l-2 border-transparent px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+              aria-current={item.id === activeId ? 'location' : undefined}
+              className={cn(
+                'flex items-center gap-3 rounded-md border-l-2 px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 motion-reduce:transition-none',
+                item.id === activeId
+                  ? 'bg-primary/10 text-primary border-transparent font-medium'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground border-transparent',
+              )}
             >
               <span
                 aria-hidden="true"

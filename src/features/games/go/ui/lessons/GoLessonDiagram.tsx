@@ -1,3 +1,5 @@
+import { cn } from '@/shared/lib/utils';
+
 type Point = { x: number; y: number };
 type Stone = Point & { color: 'black' | 'white' };
 
@@ -28,10 +30,10 @@ export function GoLessonDiagram({
         viewBox={`0 0 ${extent} ${extent}`}
         role={onIntersectionClick ? 'group' : 'img'}
         aria-label={label}
-        className="aspect-square w-full max-w-52 rounded-md border border-amber-950/25 bg-amber-200 shadow-sm"
+        className="aspect-square w-full max-w-52 rounded-md border border-amber-950/25 bg-[#F5DEBE] shadow-sm"
       >
         {Array.from({ length: size }, (_, index) => (
-          <g key={index} className="stroke-amber-950/70" strokeWidth="1">
+          <g key={index} stroke="black" strokeWidth={0.5}>
             <line
               x1={padding}
               y1={padding + index * cell}
@@ -79,17 +81,20 @@ export function GoLessonDiagram({
             return (
               <foreignObject
                 key={`target-${x}-${y}`}
-                x={padding + x * cell - 18}
-                y={padding + y * cell - 18}
-                width="36"
-                height="36"
+                x={padding + x * cell - cell / 2}
+                y={padding + y * cell - cell / 2}
+                width={cell}
+                height={cell}
               >
                 <button
                   type="button"
                   aria-label={`Column ${x + 1}, row ${y + 1}${stone ? `, ${stone.color} stone` : ', empty intersection'}${selected ? ', found' : ''}`}
                   aria-pressed={selected}
                   onClick={() => onIntersectionClick(x, y)}
-                  className="block size-full cursor-pointer rounded-md border-2 border-transparent hover:border-amber-950/40 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-amber-950"
+                  className={cn(
+                    'block size-full bg-transparent focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-amber-950',
+                    !stone && 'cursor-pointer hover:bg-black/5',
+                  )}
                 />
               </foreignObject>
             );
