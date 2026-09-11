@@ -45,3 +45,6 @@ CLAUDE.local.md
 
 # DB
 /src/generated/prisma
+
+# Sentry Config File
+.env.sentry-build-plugin
