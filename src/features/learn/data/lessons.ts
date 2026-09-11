@@ -13,16 +13,47 @@ export const GO_LESSONS: readonly LessonSummary[] = [
   {
     order: 2,
     title: 'Reading life and death',
+    href: '/learn/go/reading-life-and-death',
+    readingMinutes: 8,
     description:
-      'When does a group live? The two-eye rule and its surprising corner cases — including the seki standoff.',
+      'Recognize eyes, understand why two eyes protect a group, and spot a simple false eye.',
     level: 'intermediate',
   },
   {
     order: 3,
-    title: 'Joseki and modern openings',
+    title: 'Legal moves and ko',
+    href: '/learn/go/legal-moves-and-ko',
+    readingMinutes: 6,
     description:
-      'Corner sequences memorized for centuries. How to study them — and why the strongest players unlearn them.',
-    level: 'advanced',
+      'Know where you may play, distinguish capture from self-capture, and understand why ko prevents an immediate repeat.',
+    level: 'beginner',
+  },
+  {
+    order: 4,
+    title: 'Finishing and scoring a game',
+    href: '/learn/go/finishing-and-scoring',
+    readingMinutes: 7,
+    description:
+      'Learn when to pass, agree which stones remain, and count a result using Chinese-style area scoring.',
+    level: 'beginner',
+  },
+  {
+    order: 5,
+    title: 'Connecting, cutting, and saving stones',
+    href: '/learn/go/connecting-and-cutting',
+    readingMinutes: 7,
+    description:
+      'Keep stones working together, recognize cutting points, and read a reply before trying to save a group.',
+    level: 'intermediate',
+  },
+  {
+    order: 6,
+    title: 'Joseki and modern openings',
+    href: '/learn/go/joseki-and-modern-openings',
+    readingMinutes: 7,
+    description:
+      'Explore corners, territory, and influence. Understand the purpose of a short corner sequence before memorizing moves.',
+    level: 'intermediate',
   },
 ];
 

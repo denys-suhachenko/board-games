@@ -9,7 +9,7 @@ export function LessonOutline({
 }: {
   items: readonly LessonOutlineItem[];
 }) {
-  const [activeId, setActiveId] = useState(items[0]?.id);
+  const [activeId, setActiveId] = useState<string | undefined>(items[0]?.id);
   const activeIndex = items.findIndex((item) => item.id === activeId);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function LessonOutline({
       frame = 0;
       // Follow the last section to cross the upper reading area.
       const readingLine = Math.min(160, window.innerHeight * 0.25);
-      let currentId = items[0]?.id;
+      let currentId: string | undefined = items[0]?.id;
 
       for (const item of items) {
         const section = document.getElementById(item.id);

@@ -5,8 +5,10 @@ import { Badge } from '@/shared/ui/badge';
 import type { LessonSummary } from '../types';
 
 export function LessonNavigation({
+  previousLesson,
   nextLesson,
 }: {
+  previousLesson?: LessonSummary;
   nextLesson?: LessonSummary;
 }) {
   return (
@@ -14,12 +16,26 @@ export function LessonNavigation({
       aria-label="Lesson navigation"
       className="mt-12 flex flex-col items-start justify-between gap-6 border-t pt-8 sm:flex-row sm:items-center"
     >
-      <Button asChild variant="outline">
-        <Link href="/learn">
-          <ArrowLeftIcon data-icon="inline-start" />
-          Back to Learn
-        </Link>
-      </Button>
+      {previousLesson?.href ? (
+        <div className="flex flex-col items-start gap-2">
+          <p className="text-muted-foreground text-xs uppercase">
+            Previous lesson
+          </p>
+          <Button asChild variant="link">
+            <Link href={previousLesson.href}>
+              <ArrowLeftIcon data-icon="inline-start" />
+              {previousLesson.title}
+            </Link>
+          </Button>
+        </div>
+      ) : (
+        <Button asChild variant="outline">
+          <Link href="/learn">
+            <ArrowLeftIcon data-icon="inline-start" />
+            Back to Learn
+          </Link>
+        </Button>
+      )}
       {nextLesson && (
         <div className="flex flex-col gap-2 sm:items-end">
           <p className="text-muted-foreground text-xs uppercase">Next lesson</p>

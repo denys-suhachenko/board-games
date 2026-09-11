@@ -9,6 +9,7 @@ type GoLessonDiagramProps = {
   size?: number;
   stones: readonly Stone[];
   markers?: readonly Point[];
+  selectedPoints?: readonly Point[];
   onIntersectionClick?: (x: number, y: number) => void;
 };
 
@@ -18,6 +19,7 @@ export function GoLessonDiagram({
   size = 5,
   stones,
   markers = [],
+  selectedPoints = markers,
   onIntersectionClick,
 }: GoLessonDiagramProps) {
   const cell = 40;
@@ -72,7 +74,7 @@ export function GoLessonDiagram({
           Array.from({ length: size * size }, (_, index) => {
             const x = index % size;
             const y = Math.floor(index / size);
-            const selected = markers.some(
+            const selected = selectedPoints.some(
               (point) => point.x === x && point.y === y,
             );
             const stone = stones.find(
@@ -88,7 +90,7 @@ export function GoLessonDiagram({
               >
                 <button
                   type="button"
-                  aria-label={`Column ${x + 1}, row ${y + 1}${stone ? `, ${stone.color} stone` : ', empty intersection'}${selected ? ', found' : ''}`}
+                  aria-label={`Column ${x + 1}, row ${y + 1}${stone ? `, ${stone.color} stone` : ', empty intersection'}${selected ? ', selected' : ''}`}
                   aria-pressed={selected}
                   onClick={() => onIntersectionClick(x, y)}
                   className={cn(
