@@ -33,12 +33,7 @@ export function LessonOutline({
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className={cn(
-                'flex items-center gap-3 rounded-md border-l-2 px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2',
-                index === 0
-                  ? 'border-primary bg-primary/10 text-primary font-medium'
-                  : 'text-muted-foreground hover:bg-muted hover:text-foreground border-transparent',
-              )}
+              className="text-muted-foreground hover:bg-muted hover:text-foreground flex items-center gap-3 rounded-md border-l-2 border-transparent px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
             >
               <span
                 aria-hidden="true"

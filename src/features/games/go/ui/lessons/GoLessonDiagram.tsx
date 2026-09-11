@@ -7,6 +7,7 @@ type GoLessonDiagramProps = {
   size?: number;
   stones: readonly Stone[];
   markers?: readonly Point[];
+  onIntersectionClick?: (x: number, y: number) => void;
 };
 
 export function GoLessonDiagram({
@@ -15,6 +16,7 @@ export function GoLessonDiagram({
   size = 5,
   stones,
   markers = [],
+  onIntersectionClick,
 }: GoLessonDiagramProps) {
   const cell = 40;
   const padding = 24;
@@ -24,7 +26,7 @@ export function GoLessonDiagram({
     <figure className="bg-card flex flex-col items-center gap-3 rounded-xl border p-4 sm:p-5">
       <svg
         viewBox={`0 0 ${extent} ${extent}`}
-        role="img"
+        role={onIntersectionClick ? 'group' : 'img'}
         aria-label={label}
         className="aspect-square w-full max-w-52 rounded-md border border-amber-950/25 bg-amber-200 shadow-sm"
       >
@@ -64,6 +66,34 @@ export function GoLessonDiagram({
             strokeWidth="2"
           />
         ))}
+        {onIntersectionClick &&
+          Array.from({ length: size * size }, (_, index) => {
+            const x = index % size;
+            const y = Math.floor(index / size);
+            const selected = markers.some(
+              (point) => point.x === x && point.y === y,
+            );
+            const stone = stones.find(
+              (point) => point.x === x && point.y === y,
+            );
+            return (
+              <foreignObject
+                key={`target-${x}-${y}`}
+                x={padding + x * cell - 18}
+                y={padding + y * cell - 18}
+                width="36"
+                height="36"
+              >
+                <button
+                  type="button"
+                  aria-label={`Column ${x + 1}, row ${y + 1}${stone ? `, ${stone.color} stone` : ', empty intersection'}${selected ? ', found' : ''}`}
+                  aria-pressed={selected}
+                  onClick={() => onIntersectionClick(x, y)}
+                  className="block size-full cursor-pointer rounded-md border-2 border-transparent hover:border-amber-950/40 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-amber-950"
+                />
+              </foreignObject>
+            );
+          })}
       </svg>
       <figcaption className="text-muted-foreground max-w-prose text-center text-sm leading-relaxed">
         {caption}

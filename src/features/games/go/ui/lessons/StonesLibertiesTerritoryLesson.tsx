@@ -1,5 +1,4 @@
-import { PencilLineIcon } from 'lucide-react';
-import { Card, CardContent } from '@/shared/ui/card';
+import { GoLibertiesQuickCheck } from './GoLibertiesQuickCheck';
 import { GoLessonDiagram } from './GoLessonDiagram';
 
 export const stonesLibertiesTerritoryOutline = [
@@ -112,23 +111,7 @@ export function StonesLibertiesTerritoryLesson() {
       </section>
       <section id="quick-check" aria-labelledby="quick-check-heading">
         <h2 id="quick-check-heading">Quick Check</h2>
-        <p>
-          Pause and think: which empty intersections would you count as
-          liberties for a connected group?
-        </p>
-        <Card>
-          <CardContent className="flex items-center gap-4">
-            <div
-              aria-hidden="true"
-              className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-lg"
-            >
-              <PencilLineIcon className="size-5" />
-            </div>
-            <p className="text-muted-foreground text-sm">
-              Practice diagram coming soon.
-            </p>
-          </CardContent>
-        </Card>
+        <GoLibertiesQuickCheck />
       </section>
       <section id="summary" aria-labelledby="summary-heading">
         <h2 id="summary-heading">Summary</h2>
