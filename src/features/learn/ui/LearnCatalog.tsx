@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/shared/i18n/navigation';
 import { ArrowRightIcon } from 'lucide-react';
 import type { LessonGame } from '../types';
 import { Badge } from '@/shared/ui/badge';

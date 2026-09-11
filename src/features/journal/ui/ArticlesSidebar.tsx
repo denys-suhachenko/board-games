@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/shared/i18n/navigation';
 
 import { Button } from '@/shared/ui/button';
 import { ButtonGroup } from '@/shared/ui/button-group';

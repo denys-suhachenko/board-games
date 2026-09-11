@@ -1,13 +1,14 @@
-import Link from 'next/link';
+import { Link } from '@/shared/i18n/navigation';
 import { ArrowRightIcon, DicesIcon } from 'lucide-react';
 
 import { cn } from '../lib/utils';
 import { Container } from './Container';
-import { ThemeToggle } from './ThemeToggle';
-import { SignInDialog } from '@/features/auth/ui/SignInDialog';
+import { LocaleSwitcher } from './LocaleSwitcher';
+import type { ReactNode } from 'react';
 
 type NavbarProps = {
   transparent?: boolean;
+  actions?: ReactNode;
 };
 
 const navItems = [
@@ -25,7 +26,7 @@ const navItems = [
   },
 ];
 
-export function Navbar({ transparent }: NavbarProps) {
+export function Navbar({ transparent, actions }: NavbarProps) {
   return (
     <header
       className={cn(
@@ -58,17 +59,8 @@ export function Navbar({ transparent }: NavbarProps) {
         </nav>
 
         <div className="hidden items-center gap-x-4 text-sm md:flex">
-          <ThemeToggle />
-          <SignInDialog />
-          <Link
-            href="/"
-            className={cn(
-              'text-primary flex items-center gap-x-1 font-medium transition-colors',
-            )}
-          >
-            Play
-            <ArrowRightIcon className="h-3 w-3" />
-          </Link>
+          <LocaleSwitcher />
+          {actions}
         </div>
       </Container>
     </header>

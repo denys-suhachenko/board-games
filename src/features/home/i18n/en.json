@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "eyebrow": "Play · Discover · Win.",
+    "title": "The eternal games,",
+    "titleAccent": "played anywhere.",
+    "description": "Classic board games for modern minds. Play online, learn new strategies, and join a global community that keeps these timeless games alive.",
+    "playNow": "Play now",
+    "learnRules": "Learn the rules",
+    "worldwide": "Play with people worldwide",
+    "guides": "Learn with guides",
+    "skills": "Grow your strategy skills"
+  },
+  "popularGames": "Popular games",
+  "play": "Play",
+  "readAndLearn": "Read & learn",
+  "viewAll": "View all",
+  "readingTime": "{minutes} min",
+  "categories": {
+    "all": "All",
+    "history": "History",
+    "rules": "Rules",
+    "strategy": "Strategy"
+  },
+  "games": {
+    "go": {
+      "title": "Go",
+      "description": "Surround territory. Simple rules, infinite depth."
+    },
+    "xiangqi": {
+      "title": "Xiangqi",
+      "description": "Cross the river, capture the king."
+    },
+    "shogi": {
+      "title": "Shogi",
+      "description": "Captured pieces switch sides."
+    },
+    "latrunculi": {
+      "title": "Latrunculi",
+      "description": "An ancient Roman two-player strategy board game"
+    }
+  },
+  "articles": {
+    "goHistory": {
+      "title": "Why Go is older than chess",
+      "description": "Tracing 4,000 years of stones across the Asian continent."
+    },
+    "xiangqiBasics": {
+      "title": "Xiangqi in five minutes",
+      "description": "The river, the palace, and seven piece types - explained simply."
+    },
+    "shogiDrops": {
+      "title": "Drop rules in Shogi",
+      "description": "How captured pieces re-enter the fight and change everything."
+    }
+  }
+}
