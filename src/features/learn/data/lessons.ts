@@ -87,6 +87,8 @@ export const GAMES: readonly LessonGame[] = [
     id: 'go',
     title: 'Go',
     native: '囲碁',
+    description:
+      '6 lessons, from your first stones to opening strategy. Scroll sideways to explore, or use the arrow keys when the lesson list is focused.',
     lessons: GO_LESSONS,
   },
   {

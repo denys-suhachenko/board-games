@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Link } from '@/shared/i18n/navigation';
 
-import { Article } from '../types';
+import { Article } from '../model/types';
 
 type ArticleCardProps = {
   article: Article;

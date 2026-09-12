@@ -1,5 +1,21 @@
 {
   "header": {
-    "title": "Почніть <highlighted>де завгодно.</highlighted>"
+    "title": "Почніть <highlighted>де завгодно.</highlighted>",
+    "lesson": "Урок {order}"
+  },
+  "breadcrumbs": {
+    "home": "Головна",
+    "learn": "Навчання"
+  },
+  "level": {
+    "beginner": "Початківець",
+    "intermediate": "Середній",
+    "advanced": "Просунутий"
+  },
+  "status": {
+    "coming_soon": "Скоро буде"
+  },
+  "actions": {
+    "read_lesson": "Почати урок"
   }
 }

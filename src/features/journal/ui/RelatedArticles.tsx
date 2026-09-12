@@ -1,6 +1,6 @@
 import { Link } from '@/shared/i18n/navigation';
 import Image from 'next/image';
-import { Article } from '../types';
+import { Article } from '../model/types';
 
 type RelatedArticlesProps = {
   articles: Article[];

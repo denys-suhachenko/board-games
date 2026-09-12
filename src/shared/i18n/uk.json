@@ -12,10 +12,22 @@
     "intermediate": "Середній",
     "advanced": "Просунутий"
   },
+  "difficulty": {
+    "beginner": "Початківець",
+    "casual": "Середній",
+    "strong": "Професіонал"
+  },
   "navigation": {
     "home": "Головна"
   },
   "exercises": {
     "reset": "Скинути вправу"
+  },
+  "actions": {
+    "view_game": "Відкрити гру",
+    "read_lesson": "Почати урок",
+    "play": "Грати",
+    "view_all": "Переглянути все",
+    "start_game": "Почати нову гру"
   }
 }

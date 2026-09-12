@@ -1,7 +1,8 @@
 import { getTranslations } from 'next-intl/server';
+import { ArrowRightIcon } from 'lucide-react';
+
 import { HomeHero } from '@/features/home/ui/HomeHero';
 import { Link } from '@/shared/i18n/navigation';
-import { ArrowRightIcon } from 'lucide-react';
 
 import { Container } from '@/shared/layout';
 import { Button } from '@/shared/ui/button';
@@ -9,7 +10,9 @@ import { ToggleGroup, ToggleGroupItem } from '@/shared/ui/toggle-group';
 import { Badge } from '@/shared/ui/badge';
 
 const games = ['go', 'xiangqi', 'shogi', 'latrunculi'] as const;
+
 const categories = ['all', 'history', 'rules', 'strategy'] as const;
+
 const articles = [
   { id: 'goHistory', category: 'history', readingMinutes: 8, link: '' },
   { id: 'xiangqiBasics', category: 'rules', readingMinutes: 5, link: '' },
@@ -18,15 +21,16 @@ const articles = [
 
 export default async function Home() {
   const t = await getTranslations('home');
+
   return (
     <>
       <HomeHero />
 
-      <section className="py-8">
+      <section className="sroll-mt-8 py-8">
         <Container>
           <h2 className="sr-only">{t('popularGames')}</h2>
 
-          <div className="grid grid-cols-4 gap-6">
+          <div className="focus-visible:outline-ring grid snap-x snap-mandatory auto-cols-[100%] grid-flow-col gap-6 overflow-x-auto overscroll-x-contain px-1 pt-1 pb-4 focus-visible:outline-2 focus-visible:outline-offset-2 md:auto-cols-[calc((100%-1.5rem)/2)] lg:auto-cols-[calc((100%-5rem)/4)] [&>a]:min-w-0 [&>a]:snap-start">
             {games.map((game) => (
               <article
                 key={game}
@@ -51,12 +55,12 @@ export default async function Home() {
 
       <section className="py-8">
         <Container>
-          <div className="flex items-center justify-between">
-            <h2 className="mb-6 text-3xl font-semibold">{t('readAndLearn')}</h2>
+          <div className="mb-6 flex flex-wrap items-center justify-between">
+            <h2 className="text-3xl font-semibold">{t('readAndLearn')}</h2>
 
             <Link
-              href="/"
-              className="text-primary flex items-center gap-x-1 text-sm font-medium"
+              href="/journal"
+              className="text-primary mt-4 flex items-center gap-x-1 text-sm font-medium md:mt-0"
             >
               {t('viewAll')} <ArrowRightIcon className="size-4" />
             </Link>
@@ -79,12 +83,12 @@ export default async function Home() {
             ))}
           </ToggleGroup>
 
-          <div className="mt-6 grid grid-cols-3 gap-6">
+          <div className="mt-6 grid gap-6 lg:grid-cols-3">
             {articles.map((article) => (
               <Link
                 key={article.id}
                 href={article.link}
-                className="bg-card group rounded-md border p-6 transition-transform hover:translate-y-[-3px]"
+                className="bg-card group rounded-md border p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <Badge variant="secondary" className="uppercase">

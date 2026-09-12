@@ -1,5 +1,36 @@
 {
   "header": {
-    "title": "Багато ігор. <highlighted>Один дім.</highlighted>"
+    "title": "Багато ігор. <highlighted>Одне середовище.</highlighted>"
+  },
+  "breadcrumbs": {
+    "home": "Головна",
+    "games": "Ігри"
+  },
+  "filter": {
+    "search": {
+      "placeholder": "Пошук..."
+    },
+    "origin": {
+      "placeholder": "Країна походження"
+    },
+    "players": {
+      "placeholder": "Кількість гравців"
+    },
+    "complexity": {
+      "placeholder": "Складність"
+    }
+  },
+  "card": {
+    "players": "{count} гравців"
+  },
+  "origin": "Країна походження",
+  "players": "Кількість гравців",
+  "board": "Розмір дошки",
+  "pieces": "Кількість фігур",
+  "ready_to_play": "Готові спробувати?",
+  "actions": {
+    "play_now": "Грати",
+    "read_rules": "Правила гри",
+    "quick_match": "Грати"
   }
 }

@@ -12,10 +12,22 @@
     "intermediate": "Intermediate",
     "advanced": "Advanced"
   },
+  "difficulty": {
+    "beginner": "Beginner",
+    "casual": "Casual",
+    "strong": "Strong"
+  },
   "navigation": {
     "home": "Home"
   },
   "exercises": {
     "reset": "Reset exercise"
+  },
+  "actions": {
+    "view_game": "View game",
+    "read_lesson": "Read lesson",
+    "play": "Play",
+    "view_all": "View all",
+    "start_game": "Start new game"
   }
 }

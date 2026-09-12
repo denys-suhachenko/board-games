@@ -1,5 +1,36 @@
 {
   "header": {
     "title": "Many games. <highlighted>One home.</highlighted>"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "games": "Games"
+  },
+  "filter": {
+    "search": {
+      "placeholder": "Search games..."
+    },
+    "origin": {
+      "placeholder": "Origin"
+    },
+    "players": {
+      "placeholder": "Players"
+    },
+    "complexity": {
+      "placeholder": "Complexity"
+    }
+  },
+  "card": {
+    "players": "{count} players"
+  },
+  "origin": "Origin",
+  "players": "Players",
+  "board": "Board",
+  "pieces": "Pieces",
+  "ready_to_play": "Ready to <highlighted>play</highlighted>?",
+  "actions": {
+    "play_now": "Play now",
+    "read_rules": "Read the rules",
+    "quick_match": "Quick match"
   }
 }

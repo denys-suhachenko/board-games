@@ -11,6 +11,7 @@ export type LessonGame = {
   id: string;
   title: string;
   native?: string;
+  description?: string;
   lessons: readonly LessonSummary[];
 };
 

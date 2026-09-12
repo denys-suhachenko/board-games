@@ -1,5 +1,21 @@
 {
   "header": {
-    "title": "Start <highlighted>anywhere.</highlighted>"
+    "title": "Start <highlighted>anywhere.</highlighted>",
+    "lesson": "Lesson {order}"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "learn": "Learn"
+  },
+  "level": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "status": {
+    "coming_soon": "Comming soon"
+  },
+  "actions": {
+    "read_lesson": "Read lesson"
   }
 }
