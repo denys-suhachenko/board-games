@@ -1,6 +1,7 @@
-import { Link } from '@/shared/i18n/navigation';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
+import { Link } from '@/shared/i18n/navigation';
 import { Container } from '@/shared/layout';
 import {
   Breadcrumb,
@@ -21,6 +22,8 @@ type ArticlePageProps = {
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
+  const t = await getTranslations('journal');
+
   const article = await getArticleById(slug);
 
   const articles = await getArticles();
@@ -36,13 +39,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
+              <Link href="/">{t('breadcrumbs.home')}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/journal">Journal</Link>
+              <Link href="/journal">{t('breadcrumbs.jornal')}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
