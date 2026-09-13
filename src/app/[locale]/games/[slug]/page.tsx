@@ -82,7 +82,7 @@ export default async function GamePage({ params }: GamePage) {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="grid gap-32 lg:grid-cols-[4fr_3fr]">
+      <div className="grid gap-32 xl:grid-cols-[4fr_3fr]">
         <div>
           <header>
             <h1 className="font-serif text-6xl leading-20 font-medium">
@@ -155,7 +155,7 @@ export default async function GamePage({ params }: GamePage) {
           </div>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <GameBoard slug={slug} />
         </div>
       </div>
@@ -166,13 +166,14 @@ export default async function GamePage({ params }: GamePage) {
         <div
           className={cn(
             'bg-border grid gap-px border',
-            `md:grid-cols-2 lg:grid-cols-${game.pieces.columns || 4}`,
+            'md:grid-cols-2',
+            `lg:grid-cols-[repeat(${game.pieces.columns || 4},1fr)]`,
           )}
         >
           {game.pieces.items.map((piece) => (
             <div
               key={piece.title}
-              className="bg-background hover:bg-card p-6 transition-colors duration-300"
+              className="bg-background hover:bg-card p-6 transition-colors duration-300 md:max-lg:last:odd:col-span-2"
             >
               <div className="text-primary mb-4 text-5xl font-medium">
                 {piece.sign}
